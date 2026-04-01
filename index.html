@@ -49,6 +49,29 @@
     align-items: center;
     gap: 8px;
   }
+  .hero-slogan-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #888;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .hero-slogan-ru {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1.3;
+    margin-bottom: 28px;
+  }
+  .hero-slogan-ru em {
+    color: var(--coral);
+    font-style: normal;
+  }
+  .hero-slogan-ru span {
+    color: var(--blue);
+  }
   .logo-hex {
     width: 36px; height: 36px;
     background: var(--yellow);
@@ -545,10 +568,61 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">
-    <div class="logo-hex">E</div>
-    EnglishUp
-  </div>
+  <a href="#hero" style="text-decoration:none;">
+    <svg width="210" height="52" viewBox="0 0 210 52" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left umbrella (British) -->
+      <clipPath id="cl"><path d="M2,32 Q2,6 22,2 Q42,6 42,32Z"/></clipPath>
+      <path d="M2,32 Q2,6 22,2 Q42,6 42,32Z" fill="#fff"/>
+      <g clip-path="url(#cl)">
+        <rect x="2" y="2" width="40" height="30" fill="#012169"/>
+        <line x1="2" y1="2" x2="42" y2="32" stroke="white" stroke-width="6"/>
+        <line x1="42" y1="2" x2="2" y2="32" stroke="white" stroke-width="6"/>
+        <line x1="2" y1="2" x2="42" y2="32" stroke="#C8102E" stroke-width="3"/>
+        <line x1="42" y1="2" x2="2" y2="32" stroke="#C8102E" stroke-width="3"/>
+        <rect x="2" y="14" width="40" height="6" fill="white"/>
+        <rect x="19" y="2" width="6" height="30" fill="white"/>
+        <rect x="2" y="15.5" width="40" height="3" fill="#C8102E"/>
+        <rect x="20" y="2" width="3" height="30" fill="#C8102E"/>
+      </g>
+      <path d="M2,32 Q2,6 22,2 Q42,6 42,32Z" fill="none" stroke="#2D2A26" stroke-width="1.5"/>
+      <path d="M2,32 Q6,37 10,32 Q14,37 18,32 Q22,37 26,32 Q30,37 34,32 Q38,37 42,32" fill="none" stroke="#2D2A26" stroke-width="1.5"/>
+      <line x1="22" y1="32" x2="22" y2="46" stroke="#2D2A26" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22,46 Q22,52 16,52 Q11,52 11,48" fill="none" stroke="#2D2A26" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Right umbrella (American) -->
+      <clipPath id="cr"><path d="M50,32 Q50,6 70,2 Q90,6 90,32Z"/></clipPath>
+      <path d="M50,32 Q50,6 70,2 Q90,6 90,32Z" fill="#fff"/>
+      <g clip-path="url(#cr)">
+        <rect x="50" y="2" width="40" height="30" fill="#B22234"/>
+        <rect x="50" y="5" width="40" height="3" fill="white"/>
+        <rect x="50" y="11" width="40" height="3" fill="white"/>
+        <rect x="50" y="17" width="40" height="3" fill="white"/>
+        <rect x="50" y="23" width="40" height="3" fill="white"/>
+        <rect x="50" y="29" width="40" height="3" fill="white"/>
+        <rect x="50" y="2" width="19" height="17" fill="#3C3B6E"/>
+        <circle cx="55" cy="6" r="1.5" fill="white"/>
+        <circle cx="61" cy="6" r="1.5" fill="white"/>
+        <circle cx="67" cy="6" r="1.5" fill="white"/>
+        <circle cx="58" cy="11" r="1.5" fill="white"/>
+        <circle cx="64" cy="11" r="1.5" fill="white"/>
+        <circle cx="55" cy="16" r="1.5" fill="white"/>
+        <circle cx="61" cy="16" r="1.5" fill="white"/>
+        <circle cx="67" cy="16" r="1.5" fill="white"/>
+      </g>
+      <path d="M50,32 Q50,6 70,2 Q90,6 90,32Z" fill="none" stroke="#2D2A26" stroke-width="1.5"/>
+      <path d="M50,32 Q54,37 58,32 Q62,37 66,32 Q70,37 74,32 Q78,37 82,32 Q86,37 90,32" fill="none" stroke="#2D2A26" stroke-width="1.5"/>
+      <line x1="70" y1="32" x2="70" y2="46" stroke="#2D2A26" stroke-width="4" stroke-linecap="round"/>
+      <path d="M70,46 Q70,52 64,52 Q59,52 59,48" fill="none" stroke="#2D2A26" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Text: "oin", "oy", "English" -->
+      <text x="28" y="46" font-family="'Playfair Display',serif" font-size="17" font-weight="700" fill="#2D2A26">oin</text>
+      <text x="76" y="46" font-family="'Playfair Display',serif" font-size="17" font-weight="700" fill="#2D2A26">oy</text>
+      <text x="98" y="46" font-family="'Playfair Display',serif" font-size="17" font-weight="700" fill="#E8714A">English</text>
+
+      <!-- subtle "en" hint before Joy -->
+      <text x="65" y="30" font-family="'Nunito',sans-serif" font-size="7" font-weight="800" fill="#E8714A" opacity="0.9">en</text>
+    </svg>
+  </a>
   <div class="nav-links">
     <a href="#courses">Курсы</a>
     <a href="#about">О преподавателе</a>
@@ -574,12 +648,15 @@
 
   <div class="hero-text">
     <div class="hero-tag">🎓 Онлайн-школа английского</div>
+    <div class="hero-slogan-en">Join the fun. En·joy the language.</div>
     <h1 class="hero-title">
-      Учи английский<br>
-      <em>легко и весело</em>
+      Присоединяйся —<br>
+      <em>и наслаждайся</em>
     </h1>
     <p class="hero-subtitle">
-      Живые уроки, интерактивные тесты и персональная обратная связь от опытного преподавателя. Твой прогресс — наша забота.
+      Британский или американский — выбирай свой английский.<br>
+      Живые уроки, интерактивные тесты и личная обратная связь.<br>
+      <strong>Первый урок бесплатно.</strong>
     </p>
     <div class="hero-btns">
       <button class="btn btn-fill btn-big" onclick="showPage('register')">Начать учиться →</button>
