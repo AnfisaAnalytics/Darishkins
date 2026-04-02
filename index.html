@@ -507,6 +507,64 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   /* ===== WHY SECTION CARDS HOVER ===== */
   .why-card { transition: transform .2s; }
   .why-card:hover { transform: translateY(-6px); }
+
+  /* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  nav { padding: 14px 28px; }
+  .hero, section { padding: 60px 28px; }
+  footer { padding: 48px 28px; }
+
+  .hero { grid-template-columns: 1fr; min-height: auto; gap: 40px; }
+  .hero-card-area { align-items: flex-start; }
+  .mini-card { width: 100% !important; }
+
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .teacher-photo { max-width: 360px; }
+
+  .dash-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 12px 20px; }
+  .nav-links { gap: 12px; }
+  .nav-links a { display: none; }
+
+  .hero, section { padding: 48px 20px; }
+  footer { padding: 40px 20px; }
+
+  .hero-title { font-size: 38px; }
+  .hero-subtitle { font-size: 15px; }
+  .section-title { font-size: 30px; }
+
+  .steps-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .courses-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  .dash-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .floating-bar { width: calc(100% - 40px); flex-direction: column; gap: 10px; text-align: center; border-radius: 20px; padding: 14px 20px; }
+
+  .modal-box { padding: 32px 24px; }
+  .result-details { gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 30px; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns .btn { width: 100%; text-align: center; }
+
+  .steps-grid { grid-template-columns: 1fr; }
+  .teacher-stats { grid-template-columns: repeat(3, 1fr); }
+
+  .section-title { font-size: 26px; }
+  .nav-links .btn-outline { display: none; }
+}
 </style>
 </head>
 <body>
