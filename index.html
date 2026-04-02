@@ -603,8 +603,8 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
    <div class="hero-tag">Эффективный онлайн-курс - как альтернатива дорогим репетиторам и учебникам</div>
    <div class="hero-slogan-en">Join the fun. En·joy the language.</div>
     <h1 class="hero-title">
-      Присоединяйся —<br>
-      <em>и наслаждайся</em>
+      Прокачай свой английский<br>
+      <em>здесь и сейчас</em>
     </h1>
     <p class="hero-subtitle">
       Структурированные уроки по лексике и грамматике, сотни практических упражнений и трекер твоего прогресса.
@@ -615,70 +615,105 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
       <button style="width: 13.5rem;"class="btn btn-fill btn-big" onclick="openModal('register')">Пробный урок</button>
       <button style="width: 13.5rem;" class="btn btn-outline btn-big" onclick="openModal('register')">Начать учиться</button>
     </div>
-       <button style="margin-top: 22px;"class="btn btn-yellow btn-big" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">О преподавателе</button>
-   
+    
   </div>
 
-  <div class="hero-card-area">
-    <div class="mini-card">
-      <div class="mc-label">Текущий урок</div>
-      <div class="mc-title">📚 Present Perfect Tense</div>
-      <div class="mc-progress"><div class="mc-bar" style="width:65%"></div></div>
-      <div style="font-size:12px;color:#999;margin-top:6px">65% выполнено</div>
-    </div>
-    <div class="mini-card">
-      <div class="mc-label">Последний тест</div>
-      <div class="mc-title">✅ Reading Comprehension</div>
-      <div class="mc-progress"><div class="mc-bar blue" style="width:88%"></div></div>
-      <div style="font-size:12px;color:#999;margin-top:6px">Оценка: 88/100 — Отлично!</div>
-    </div>
-    <div class="mini-card">
-      <div class="mc-label">Серия дней</div>
-      <div class="mc-title">🔥 14 дней подряд!</div>
-      <div style="display:flex;gap:6px;margin-top:8px">
-        <span style="font-size:20px">🟡</span><span style="font-size:20px">🟡</span><span style="font-size:20px">🟡</span><span style="font-size:20px">🟡</span><span style="font-size:20px">🟡</span><span style="font-size:20px">⬜</span><span style="font-size:20px">⬜</span>
-      </div>
-    </div>
+   <div class="hero-card-area">
+ <div class="hero-card-area">
+  <div style="position:relative;display:inline-block">
+    
+    <!-- Декоративный фон за фото -->
+    <div style="
+      position:absolute; inset:-16px;
+      background:linear-gradient(135deg, var(--yellow) 0%, var(--blue) 100%);
+      border-radius: 48px 48px 140px 48px;
+      opacity:.25; z-index:0;
+    "></div>
+
+    <!-- Фото преподавателя -->
+    <img src="teacher.png" alt="Дарина — преподаватель"
+      style="
+        position:relative; z-index:1;
+        width:100%; max-width:420px;
+        aspect-ratio:4/5; object-fit:cover;
+        border-radius: 40px 40px 120px 40px;
+        display:block;
+        box-shadow: 0 24px 60px rgba(0,0,0,.15);
+      "
+    >
+
+    <!-- Бейдж рейтинга -->
+    <div style="
+      position:absolute; z-index:2;
+      top:-12px; left:-16px;
+      background:var(--yellow); color:var(--dark);
+      border-radius:16px; padding:10px 16px;
+      font-weight:800; font-size:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.1);
+    ">12 лет опыта</div>
+
+    <!-- Бейдж сертификата -->
+    <div style="
+      position:absolute; z-index:2;
+      bottom:-12px; right:-16px;
+      background:white; color:var(--dark);
+      border-radius:16px; padding:10px 16px;
+      font-weight:800; font-size:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.12);
+    ">🎓 C1 (Advanced)</div>
+
   </div>
+
+  <!-- Кнопка под фото -->
+  <button
+    class="btn btn-yellow btn-big"
+    style="margin-top:32px; width:100%; max-width:420px;"
+    onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"
+  >О преподавателе ↓</button>
+
+</div>
+   </div>
 </section>
 
 <!-- ===== WHY JOIN JOY ===== -->
 <section style="background:var(--cream);padding:60px 60px 40px">
-  <div class="section-tag">Почему Join Joy English</div>
-  <h2 class="section-title">Не просто уроки — <em style="color:var(--coral);font-style:italic">система</em></h2>
-  <p class="section-sub">Каждый урок построен так, чтобы вы не просто слушали — а практиковались, запоминали и уверенно говорили.</p>
+  <div class="section-tag"></div>
+  <h2 class="section-title">Почему Join Joy English</h2>
+  <p class="section-sub">Наш курс предлагает большой объём практических упражнений и систему, которая контролирует их планомерное выполнение.</p>
+  <br>
+<p class="section-sub">Join Joy English — твой персональный репетитор, который не даст тебе забросить обучение и приведёт к желаемому результату.</p>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px">
     <div class="why-card" style="background:white;border-radius:24px;padding:32px;border-top:5px solid var(--yellow);box-shadow:0 4px 20px rgba(0,0,0,.06)">
-      <div style="font-size:44px;margin-bottom:16px">🗂️</div>
-      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Чёткая структура</div>
-      <p style="font-size:14px;color:#777;line-height:1.7">Каждый урок разбит на понятные блоки: объяснение → примеры → упражнения → тест. Никакой воды — только то, что нужно.</p>
+      <div style="font-size:44px;margin-bottom:16px">📚</div>
+      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Нужная лексика</div>
+      <p style="font-size:14px;color:#777;line-height:1.7">Собраны полезные темы со словами и выражениями, которые активно используются в быту и повседневной жизни, но ты их вряд ли когда-либо учил ;)</p>
     </div>
     <div class="why-card" style="background:white;border-radius:24px;padding:32px;border-top:5px solid var(--blue);box-shadow:0 4px 20px rgba(0,0,0,.06)">
-      <div style="font-size:44px;margin-bottom:16px">🎮</div>
-      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Интерактивная практика</div>
-      <p style="font-size:14px;color:#777;line-height:1.7">Заполни пропуски, выбери правильный вариант, составь предложение — упражнений так много, что грамматика запоминается сама.</p>
+      <div style="font-size:44px;margin-bottom:16px">🎬</div>
+      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Понятная грамматика</div>
+      <p style="font-size:14px;color:#777;line-height:1.7">Видео-уроки позволят тебе усвоить даже самые сложные грамматические конструкции. Ты наконец подружишься с Present Perfect!</p>
     </div>
     <div class="why-card" style="background:white;border-radius:24px;padding:32px;border-top:5px solid var(--coral);box-shadow:0 4px 20px rgba(0,0,0,.06)">
-      <div style="font-size:44px;margin-bottom:16px">💬</div>
-      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Живая обратная связь</div>
-      <p style="font-size:14px;color:#777;line-height:1.7">После каждого теста — разбор ошибок и комментарий преподавателя. Ты всегда знаешь, где ошибся и как это исправить.</p>
+      <div style="font-size:44px;margin-bottom:16px">💪</div>
+      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Много практики</div>
+      <p style="font-size:14px;color:#777;line-height:1.7">Столько упражнений на отработку одной темы ты ещё нигде не встречал. Тебе не придётся ничего зубрить — ты всё запомнишь к концу урока.</p>
     </div>
     <div class="why-card" style="background:white;border-radius:24px;padding:32px;border-top:5px solid var(--green);box-shadow:0 4px 20px rgba(0,0,0,.06)">
-      <div style="font-size:44px;margin-bottom:16px">🇬🇧🇺🇸</div>
-      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Британский + Американский</div>
-      <p style="font-size:14px;color:#777;line-height:1.7">Обе нормы языка в одном месте. Ты сам выбираешь, какой вариант тебе ближе — или учишь оба.</p>
+      <div style="font-size:44px;margin-bottom:16px">🏆</div>
+      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Оценка проделанной работы</div>
+      <p style="font-size:14px;color:#777;line-height:1.7">Отслеживай свой прогресс с помощью встроенной системы оценивания. Весёлые мемасы вместо 5-балльной шкалы.</p>
     </div>
     <div class="why-card" style="background:white;border-radius:24px;padding:32px;border-top:5px solid var(--pink);box-shadow:0 4px 20px rgba(0,0,0,.06)">
-      <div style="font-size:44px;margin-bottom:16px">📈</div>
-      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Виден прогресс</div>
-      <p style="font-size:14px;color:#777;line-height:1.7">Твой личный кабинет показывает прогресс по каждой теме, оценки за тесты и ежедневную активность. Мотивирует двигаться дальше.</p>
+      <div style="font-size:44px;margin-bottom:16px">⏱️</div>
+      <div style="font-size:18px;font-weight:900;margin-bottom:10px">Таймер — твоя дисциплина</div>
+      <p style="font-size:14px;color:#777;line-height:1.7">На выполнение каждого урока отведено определённое время. Не успел — урок обнуляется и начинается сначала, а следующий не откроется.</p>
     </div>
     <div class="why-card" style="background:linear-gradient(135deg,var(--coral),#e8508c);border-radius:24px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,.1);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white">
-      <div style="font-size:44px;margin-bottom:16px">🎓</div>
-      <div style="font-size:22px;font-weight:900;margin-bottom:12px">Заменит репетитора</div>
-      <p style="font-size:14px;opacity:.85;line-height:1.6;margin-bottom:20px">Полноценный курс с преподавателем онлайн — без поездок, в удобное время.</p>
-      <button class="btn btn-yellow" onclick="openModal('register')">Попробовать бесплатно</button>
+      <div style="font-size:44px;margin-bottom:16px">🚀</div>
+      <div style="font-size:22px;font-weight:900;margin-bottom:12px">Let's gooooo!</div>
+      <p style="font-size:14px;opacity:.85;line-height:1.6;margin-bottom:20px">Начни учиться прямо сейчас — без откладываний и отговорок.</p>
+      <button class="btn btn-yellow" onclick="openModal('register')">Выбрать курс прямо сейчас</button>
     </div>
   </div>
 </section>
@@ -716,32 +751,225 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
 </section>
 
 <!-- ===== ABOUT TEACHER ===== -->
+<!-- ===== ABOUT TEACHER ===== -->
 <section id="about" style="background:var(--cream)">
   <div class="section-tag">Преподаватель</div>
   <div class="about-grid">
-    <div style="position:relative">
-      <div class="teacher-photo">
-        👩‍🏫
-        <div class="teacher-badge tb2">⭐ 4.9 рейтинг</div>
-        <div class="teacher-badge tb1">🎓 CELTA сертификат</div>
+
+    <!-- Фото -->
+    <div style="position:relative; display:flex; justify-content:center;">
+      <div style="position:relative; display:inline-block;">
+        <div style="
+          position:absolute; inset:-16px;
+          background:linear-gradient(135deg, var(--yellow) 0%, var(--blue) 100%);
+          border-radius: 48px 48px 140px 48px;
+          opacity:.2; z-index:0;
+        "></div>
+        <img src="teacher.jpeg" alt="Дарина — преподаватель"
+          style="
+            position:relative; z-index:1;
+            width:100%; max-width:380px;
+            aspect-ratio:4/5; object-fit:cover;
+            border-radius: 40px 40px 120px 40px;
+            display:block;
+            box-shadow: 0 24px 60px rgba(0,0,0,.15);
+          "
+        >
+        <!-- Бейдж CELTA -->
+        <div style="
+          position:absolute; z-index:2;
+          top:-12px; left:-16px;
+          background:var(--yellow); color:var(--dark);
+          border-radius:16px; padding:10px 16px;
+          font-weight:800; font-size:14px;
+          box-shadow:0 6px 20px rgba(0,0,0,.1);
+        ">🎓 C1 (Advanced)</div>
+
+        <!-- Бейдж студентов -->
+        <div style="
+          position:absolute; z-index:2;
+          bottom:-12px; right:-16px;
+          background:white; color:var(--dark);
+          border-radius:16px; padding:10px 16px;
+          font-weight:800; font-size:14px;
+          box-shadow:0 6px 20px rgba(0,0,0,.12);
+        ">👩‍🎓 600+ студентов</div>
       </div>
     </div>
+
+    <!-- Текст -->
     <div>
-      <h2 class="teacher-name">Дарина [Фамилия]</h2>
-      <div class="teacher-title">ПРЕПОДАВАТЕЛЬ АНГЛИЙСКОГО · CELTA · [N] ЛЕТ ОПЫТА</div>
+      <h2 class="teacher-name">Дарина Антонова</h2>
+      <div class="teacher-title">ПРЕПОДАВАТЕЛЬ АНГЛИЙСКОГО · CELTA · 12 ЛЕТ ОПЫТА</div>
       <p class="teacher-desc">
-        Привет! Я Дарина — преподаватель с международной сертификацией и многолетним опытом работы со студентами всех уровней. Моя цель — сделать изучение английского понятным, весёлым и результативным. Я помогла более 200 студентам достичь своих языковых целей.
+        Привет! Я Дарина — преподаватель английского и создатель этого курса. Уже 12 лет в профессии,
+        через меня прошло более 600 учеников, которые достигли прекрасных результатов по моим авторским
+        материалам. Моя искренняя любовь к работе и творческий, системный подход — ключ к успеху моих
+        студентов. Именно это я применила при создании этого курса.
       </p>
+
+      <!-- Статистика: 3 ячейки без рейтинга -->
       <div class="teacher-stats">
-        <div class="stat-box"><div class="stat-num">200+</div><div class="stat-label">Студентов</div></div>
-        <div class="stat-box"><div class="stat-num">8 лет</div><div class="stat-label">Опыт</div></div>
-        <div class="stat-box"><div class="stat-num">98%</div><div class="stat-label">Довольны</div></div>
+        <div class="stat-box">
+          <div class="stat-num">600+</div>
+          <div class="stat-label">Студентов</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">12 лет</div>
+          <div class="stat-label">Опыт</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Довольных</div>
+        </div>
       </div>
-      <button class="btn btn-fill btn-big" onclick="openModal('trial')">Записаться на пробный урок</button>
+
+      <!-- Кнопка теперь скроллит к отзывам -->
+      <button class="btn btn-fill btn-big"
+        onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">
+        Читать отзывы ↓
+      </button>
     </div>
+
   </div>
 </section>
+<!-- ===== REVIEWS CAROUSEL ===== -->
+<section id="reviews" style="background:white; padding:80px 60px;">
+  <div class="section-tag">Отзывы</div>
+  <h2 class="section-title">Что говорят студенты</h2>
+  <p class="section-sub">Реальные отзывы — реальные результаты</p>
 
+  <div class="carousel-wrap" style="position:relative; margin-top:48px; overflow:hidden;">
+
+    <!-- Трек с карточками -->
+    <div class="carousel-track" id="reviewTrack" style="
+      display:flex; gap:24px;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    ">
+      <!-- Карточки генерируются JS-ом ниже -->
+    </div>
+
+    <!-- Кнопки-стрелки -->
+    <button onclick="moveCarousel(-1)" style="
+      position:absolute; left:-16px; top:50%; transform:translateY(-50%);
+      width:48px; height:48px; border-radius:50%;
+      background:white; border:2px solid #eee;
+      font-size:20px; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,.1);
+      display:flex; align-items:center; justify-content:center;
+      transition: box-shadow .2s, border-color .2s;
+      z-index:10;
+    " onmouseover="this.style.borderColor='var(--coral)'" onmouseout="this.style.borderColor='#eee'">‹</button>
+
+    <button onclick="moveCarousel(1)" style="
+      position:absolute; right:-16px; top:50%; transform:translateY(-50%);
+      width:48px; height:48px; border-radius:50%;
+      background:white; border:2px solid #eee;
+      font-size:20px; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,.1);
+      display:flex; align-items:center; justify-content:center;
+      transition: box-shadow .2s, border-color .2s;
+      z-index:10;
+    " onmouseover="this.style.borderColor='var(--coral)'" onmouseout="this.style.borderColor='#eee'">›</button>
+  </div>
+
+  <!-- Точки-индикаторы -->
+  <div id="carouselDots" style="
+    display:flex; justify-content:center; gap:8px; margin-top:28px;
+  "></div>
+</section>
+
+<script>
+  /* ===== REVIEWS DATA =====
+     Замени src на реальные имена файлов твоих .jpeg фото.
+     Если фото зовутся review1.jpeg … review9.jpeg — всё уже готово.
+  */
+const reviews = [
+  '1.jpeg','2.jpeg','3.jpeg','4.jpeg','5.jpeg',
+  '6.jpeg','7.jpeg','8.jpeg','9.jpeg'
+];
+
+  const VISIBLE = 3; // сколько карточек видно одновременно на десктопе
+  let current = 0;
+
+  function getVisible() {
+    return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : VISIBLE;
+  }
+
+function buildCards() {
+  const track = document.getElementById('reviewTrack');
+  track.style.alignItems = 'center'; // выравнивание по центру
+  track.innerHTML = reviews.map((src, i) => `
+    <div class="review-card" style="
+      flex: 0 0 calc((100% - ${(getVisible()-1)*24}px) / ${getVisible()});
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.10);
+      background: white;
+    ">
+      <img src="${src}" alt="Отзыв ${i+1}"
+        style="width:100%; height:auto; display:block;"
+      >
+    </div>
+  `).join('');
+  buildDots();
+  goTo(0);
+}
+
+  function buildDots() {
+    const vis = getVisible();
+    const total = reviews.length - vis + 1;
+    const dots = document.getElementById('carouselDots');
+    dots.innerHTML = Array.from({length: total}, (_, i) => `
+      <div onclick="goTo(${i})" style="
+        width:${i===0?'24px':'8px'}; height:8px; border-radius:50px;
+        background:${i===0?'var(--coral)':'#ddd'};
+        cursor:pointer; transition: all .3s;
+      " id="dot-${i}"></div>
+    `).join('');
+  }
+
+  function goTo(idx) {
+    const vis = getVisible();
+    const max = reviews.length - vis;
+    current = Math.max(0, Math.min(idx, max));
+
+    const card = document.querySelector('.review-card');
+    if (!card) return;
+    const cardW = card.offsetWidth + 24;
+    document.getElementById('reviewTrack').style.transform = `translateX(-${current * cardW}px)`;
+
+    // обновить точки
+    const total = max + 1;
+    for (let i = 0; i < total; i++) {
+      const dot = document.getElementById('dot-' + i);
+      if (!dot) continue;
+      dot.style.width = i === current ? '24px' : '8px';
+      dot.style.background = i === current ? 'var(--coral)' : '#ddd';
+    }
+  }
+
+  function moveCarousel(dir) {
+    goTo(current + dir);
+  }
+
+  // Автопрокрутка
+  let autoTimer = setInterval(() => moveCarousel(1), 4000);
+  document.getElementById('reviewTrack')?.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  document.getElementById('reviewTrack')?.addEventListener('mouseleave', () => {
+    autoTimer = setInterval(() => moveCarousel(1), 4000);
+  });
+
+  // Свайп на мобильном
+  let touchStartX = 0;
+  document.getElementById('reviewTrack')?.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  document.getElementById('reviewTrack')?.addEventListener('touchend', e => {
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) moveCarousel(dx > 0 ? 1 : -1);
+  });
+
+  window.addEventListener('resize', buildCards);
+  buildCards();
+</script>
 <!-- ===== COURSES ===== -->
 <section class="courses" id="courses">
   <div class="section-tag">Курсы</div>
@@ -985,7 +1213,7 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
 
 <!-- ===== FLOATING CTA ===== -->
 <div class="floating-bar" id="floating-bar">
-  <span>🎓 Первый урок — бесплатно!</span>
+  <span>🎓 Пробный урок — бесплатно!</span>
   <button class="btn btn-yellow" onclick="openModal('trial')">Попробовать</button>
 </div>
 
