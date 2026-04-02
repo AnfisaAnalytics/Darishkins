@@ -585,7 +585,7 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
     <a href="#tests">Тесты</a>
     <a href="#pricing">Цены</a>
     <button class="btn btn-outline" onclick="openModal('login')">Войти</button>
-    <button class="btn btn-fill" onclick="openModal('register')">Начать бесплатно</button>
+    <button class="btn btn-fill" onclick="openModal('register')">Пробный урок</button>
   </div>
 </nav>
 
@@ -607,14 +607,16 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
       <em>и наслаждайся</em>
     </h1>
     <p class="hero-subtitle">
-      Структурированные уроки, сотни практических упражнений и живая обратная связь.<br>
-      Британский и американский английский — в одном месте.<br>
-      <strong>Заменит тебе репетитора. Первый урок — бесплатно.</strong>
+      Структурированные уроки по лексике и грамматике, сотни практических упражнений и трекер твоего прогресса.
+
+      <!-- <strong>Бесплатный пробный урок</strong> -->
     </p>
     <div class="hero-btns">
-      <button class="btn btn-fill btn-big" onclick="openModal('register')">Начать учиться →</button>
-      <button class="btn btn-yellow btn-big" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">О преподавателе</button>
+      <button style="width: 13.5rem;"class="btn btn-fill btn-big" onclick="openModal('register')">Пробный урок</button>
+      <button style="width: 13.5rem;" class="btn btn-outline btn-big" onclick="openModal('register')">Начать учиться</button>
     </div>
+       <button style="margin-top: 22px;"class="btn btn-yellow btn-big" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">О преподавателе</button>
+   
   </div>
 
   <div class="hero-card-area">
