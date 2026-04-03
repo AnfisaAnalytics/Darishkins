@@ -718,39 +718,39 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS ===== -->
+<!-- ===== HOW A LESSON WORKS ===== -->
 <section class="how" id="how">
-  <div class="section-tag">Как это работает</div>
-  <h2 class="section-title">4 шага к свободному английскому</h2>
+  <div class="section-tag">Как устроен урок</div>
+  <h2 class="section-title">Каждый урок — это система</h2>
+  <p class="section-sub">Никакой воды. Только практика, которая реально работает.</p>
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-num">1</div>
-      <div class="step-icon" style="background:rgba(245,200,66,.2)">📝</div>
-      <div class="step-title">Регистрация</div>
-      <div class="step-desc">Создай аккаунт за 30 секунд и получи личный кабинет ученика</div>
+      <div class="step-icon" style="background:rgba(245,200,66,.2)">🎬</div>
+      <div class="step-title">Видео-объяснение</div>
+      <div class="step-desc">Короткое и понятное видео от Дарины — тема раскрыта без воды, с примерами из жизни</div>
     </div>
     <div class="step-card">
       <div class="step-num">2</div>
-      <div class="step-icon" style="background:rgba(107,191,220,.2)">🎯</div>
-      <div class="step-title">Выбери курс</div>
-      <div class="step-desc">Подбери уровень: Beginner, Intermediate или Advanced</div>
+      <div class="step-icon" style="background:rgba(107,191,220,.2)">📋</div>
+      <div class="step-title">Словарь и фразы</div>
+      <div class="step-desc">Список слов и выражений по теме с произношением — то, что реально используют носители</div>
     </div>
     <div class="step-card">
       <div class="step-num">3</div>
-      <div class="step-icon" style="background:rgba(232,113,74,.2)">📖</div>
-      <div class="step-title">Проходи уроки</div>
-      <div class="step-desc">Видео-уроки, упражнения и живые сессии с преподавателем</div>
+      <div class="step-icon" style="background:rgba(232,113,74,.2)">✏️</div>
+      <div class="step-title">50+ упражнений</div>
+      <div class="step-desc">Заполни пропуски, переведи, составь предложение. Таймер не даст расслабиться</div>
     </div>
     <div class="step-card">
       <div class="step-num">4</div>
-      <div class="step-icon" style="background:rgba(125,201,122,.2)">🏆</div>
-      <div class="step-title">Сдавай тесты</div>
-      <div class="step-desc">Получай оценки, сертификаты и отслеживай прогресс</div>
+      <div class="step-icon" style="background:rgba(125,201,122,.2)">🏅</div>
+      <div class="step-title">Мем-оценка</div>
+      <div class="step-desc">В конце получаешь оценку в виде мема — и только потом открывается следующий урок</div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT TEACHER ===== -->
 <!-- ===== ABOUT TEACHER ===== -->
 <section id="about" style="background:var(--cream)">
   <div class="section-tag">Преподаватель</div>
@@ -1089,47 +1089,207 @@ function buildCards() {
   </div>
 </section>
 
-<!-- ===== TEST PREVIEW ===== -->
+<!-- ===== LEVEL TEST ===== -->
 <section class="tests" id="tests">
-  <div class="section-tag">Тесты и оценки</div>
-  <h2 class="section-title">Проверяй знания в реальном времени</h2>
-  <p class="section-sub">Интерактивные тесты с мгновенной оценкой после каждой темы</p>
-  <div class="test-preview">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <span style="font-weight:800;font-size:15px">📝 Grammar Test: Tenses</span>
-      <span style="font-size:13px;color:#999;font-weight:700">Вопрос 2 из 5</span>
+  <div class="section-tag">Узнай свой уровень</div>
+  <h2 class="section-title">Быстрый тест — 5 вопросов</h2>
+  <p class="section-sub">Ответь честно — и получишь рекомендацию какой курс подойдёт именно тебе</p>
+
+  <div class="test-preview" id="level-test">
+
+    <!-- ПРОГРЕСС -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <span style="font-weight:800;font-size:15px" id="lt-label">📝 Вопрос 1 из 5</span>
+      <span style="font-size:13px;color:#999;font-weight:700" id="lt-score-live"></span>
     </div>
-    <div class="test-progress-bar"><div class="test-progress"></div></div>
-    <div style="font-size:13px;color:#999;font-weight:700;margin-bottom:8px">Вопрос 2</div>
-    <div class="test-question">She _____ to the gym every morning before work.</div>
-    <div class="test-options" id="demo-opts">
-      <div class="test-opt correct" onclick="demoSelect(this,'correct')">✓ &nbsp; goes</div>
-      <div class="test-opt" onclick="demoSelect(this,'wrong')">go</div>
-      <div class="test-opt" onclick="demoSelect(this,'wrong')">going</div>
-      <div class="test-opt" onclick="demoSelect(this,'wrong')">is go</div>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div style="background:rgba(125,201,122,.1);border-radius:12px;padding:12px 18px;border-left:4px solid var(--green);font-size:14px;color:#4a9e47;font-weight:700;flex:1;margin-right:16px">
-        ✅ Правильно! «Goes» используется с местоимением she в Present Simple.
-      </div>
-      <button class="btn btn-fill" onclick="openModal('register')">Далее →</button>
+    <div class="test-progress-bar">
+      <div class="test-progress" id="lt-bar" style="width:20%;transition:width .4s ease"></div>
     </div>
 
-    <hr style="margin:32px 0;border:none;border-top:2px dashed #eee">
+    <!-- ВОПРОС -->
+    <div id="lt-question" class="test-question" style="margin-top:24px"></div>
 
-    <div style="font-weight:800;font-size:16px;margin-bottom:16px;text-align:center">Пример результата теста</div>
-    <div class="test-result-box">
-      <div class="result-grade">A</div>
-      <div class="result-label">Отличный результат!</div>
-      <div class="result-details">
-        <div class="rd-item"><div class="rd-num">92</div><div class="rd-sub">Баллов</div></div>
-        <div class="rd-item"><div class="rd-num">23/25</div><div class="rd-sub">Правильных</div></div>
-        <div class="rd-item"><div class="rd-num">8 мин</div><div class="rd-sub">Время</div></div>
-      </div>
+    <!-- ВАРИАНТЫ -->
+    <div class="test-options" id="lt-options"></div>
+
+    <!-- ПОЯСНЕНИЕ (скрыто до ответа) -->
+    <div id="lt-explanation" style="
+      display:none;
+      background:rgba(125,201,122,.1);border-radius:12px;
+      padding:12px 18px;border-left:4px solid var(--green);
+      font-size:14px;color:#4a9e47;font-weight:700;margin-bottom:16px
+    "></div>
+
+    <!-- КНОПКА ДАЛЕЕ -->
+    <div style="text-align:right;margin-top:8px">
+      <button class="btn btn-fill" id="lt-next" style="display:none" onclick="ltNext()">Далее →</button>
     </div>
+
+    <!-- РЕЗУЛЬТАТ (скрыт до конца) -->
+    <div id="lt-result" style="display:none"></div>
+
   </div>
 </section>
 
+<script>
+const ltQuestions = [
+  {
+    q: 'Выбери правильный вариант: "She ___ to work every day."',
+    opts: ['go','goes','is going','going'],
+    correct: 1,
+    hint: '✅ Правильно! В Present Simple с he/she/it глагол получает окончание -s.',
+    score: 1
+  },
+  {
+    q: 'Переведи: «Я не видел его с прошлой пятницы.»',
+    opts: [
+      "I didn't see him since last Friday.",
+      "I haven't seen him since last Friday.",
+      "I don't see him since last Friday.",
+      "I wasn't seeing him since last Friday."
+    ],
+    correct: 1,
+    hint: '✅ Верно! «С определённого момента в прошлом» = Present Perfect + since.',
+    score: 2
+  },
+  {
+    q: 'Что означает фраза "It\'s on the tip of my tongue"?',
+    opts: [
+      'Мне это не нравится',
+      'Я почти вспомнил, но никак не могу',
+      'Я хочу это сказать вслух',
+      'Это слишком сложно для меня'
+    ],
+    correct: 1,
+    hint: '✅ Точно! Это идиома — «вертится на языке».',
+    score: 2
+  },
+  {
+    q: 'Выбери правильный вариант: "If I ___ you, I would apologize."',
+    opts: ['am','was','were','be'],
+    correct: 2,
+    hint: '✅ Молодец! В условных предложениях 2-го типа после if используется were для всех лиц.',
+    score: 3
+  },
+  {
+    q: 'Какое слово лишнее по смыслу? (деловая переписка)',
+    opts: [
+      'I am writing to inquire about...',
+      'Could you please clarify...',
+      'Yo, what\'s up with the deal?',
+      'I would appreciate your prompt response.'
+    ],
+    correct: 2,
+    hint: '✅ Верно! Фраза "Yo, what\'s up" — сленг, неуместный в деловом письме.',
+    score: 3
+  }
+];
+
+const ltLevels = [
+  { max: 3,  icon: '🌱', level: 'Beginner',      color: 'var(--blue)',   text: 'Отличный старт! Тебе подойдёт курс для начинающих — база грамматики, первые разговоры, 50+ упражнений на каждую тему.', btn: 'btn-blue' },
+  { max: 8,  icon: '⚡', level: 'Intermediate',   color: 'var(--yellow)', text: 'Хороший уровень! Ты уже знаешь основы — самое время перейти к сложной грамматике, говорению и реальным темам.', btn: 'btn-yellow' },
+  { max: 99, icon: '🚀', level: 'Advanced',       color: 'var(--coral)',  text: 'Впечатляет! Ты на продвинутом уровне. Деловой английский, подготовка к IELTS, идиомы и академическое письмо — твой курс.', btn: 'btn-fill' }
+];
+
+let ltCurrent = 0;
+let ltTotal = 0;
+let ltAnswered = false;
+
+function ltRender() {
+  const q = ltQuestions[ltCurrent];
+  document.getElementById('lt-label').textContent = `📝 Вопрос ${ltCurrent + 1} из ${ltQuestions.length}`;
+  document.getElementById('lt-bar').style.width = `${((ltCurrent + 1) / ltQuestions.length) * 100}%`;
+  document.getElementById('lt-question').textContent = q.q;
+  document.getElementById('lt-explanation').style.display = 'none';
+  document.getElementById('lt-next').style.display = 'none';
+  document.getElementById('lt-score-live').textContent = '';
+  ltAnswered = false;
+
+  const opts = document.getElementById('lt-options');
+  opts.style.display = 'flex';
+  opts.innerHTML = q.opts.map((o, i) => `
+    <div class="test-opt" onclick="ltAnswer(${i})">${o}</div>
+  `).join('');
+}
+
+function ltAnswer(idx) {
+  if (ltAnswered) return;
+  ltAnswered = true;
+  const q = ltQuestions[ltCurrent];
+  const opts = document.querySelectorAll('#lt-options .test-opt');
+
+  opts.forEach((el, i) => {
+    el.style.pointerEvents = 'none';
+    if (i === q.correct) {
+      el.style.borderColor = 'var(--green)';
+      el.style.background = 'rgba(125,201,122,.12)';
+      el.style.color = '#4a9e47';
+    } else if (i === idx && idx !== q.correct) {
+      el.style.borderColor = 'var(--coral)';
+      el.style.background = 'rgba(232,113,74,.08)';
+      el.style.color = 'var(--coral)';
+    }
+  });
+
+  if (idx === q.correct) ltTotal += q.score;
+
+  const expl = document.getElementById('lt-explanation');
+  expl.textContent = idx === q.correct ? q.hint : `❌ Правильный ответ: "${q.opts[q.correct]}"`;
+  expl.style.borderLeftColor = idx === q.correct ? 'var(--green)' : 'var(--coral)';
+  expl.style.background = idx === q.correct ? 'rgba(125,201,122,.1)' : 'rgba(232,113,74,.08)';
+  expl.style.color = idx === q.correct ? '#4a9e47' : 'var(--coral)';
+  expl.style.display = 'block';
+
+  document.getElementById('lt-next').style.display = 'inline-block';
+}
+
+function ltNext() {
+  ltCurrent++;
+  if (ltCurrent < ltQuestions.length) {
+    ltRender();
+  } else {
+    ltShowResult();
+  }
+}
+
+function ltShowResult() {
+  const level = ltLevels.find(l => ltTotal <= l.max);
+  document.getElementById('lt-label').textContent = '🏁 Тест завершён!';
+  document.getElementById('lt-bar').style.width = '100%';
+  document.getElementById('lt-question').style.display = 'none';
+  document.getElementById('lt-options').style.display = 'none';
+  document.getElementById('lt-explanation').style.display = 'none';
+  document.getElementById('lt-next').style.display = 'none';
+
+  document.getElementById('lt-result').style.display = 'block';
+  document.getElementById('lt-result').innerHTML = `
+    <div class="test-result-box" style="background:linear-gradient(135deg,${level.color},${level.color}cc)">
+      <div style="font-size:56px;margin-bottom:8px">${level.icon}</div>
+      <div class="result-grade" style="font-size:36px;margin-bottom:4px">${level.level}</div>
+      <div class="result-label">${level.text}</div>
+      <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn ${level.btn}" onclick="openModal('register')" style="font-size:15px;padding:14px 28px">
+          Начать этот курс →
+        </button>
+        <button class="btn btn-outline" onclick="ltRestart()"
+          style="font-size:15px;padding:14px 28px;border-color:rgba(255,255,255,.5);color:white">
+          Пройти заново
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function ltRestart() {
+  ltCurrent = 0;
+  ltTotal = 0;
+  document.getElementById('lt-question').style.display = 'block';
+  document.getElementById('lt-result').style.display = 'none';
+  ltRender();
+}
+
+ltRender();
+</script>
 <!-- ===== PRICING ===== -->
 <section class="pricing" id="pricing">
   <div class="section-tag">Тарифы</div>
