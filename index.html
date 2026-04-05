@@ -527,6 +527,10 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   .teacher-photo { max-width: 360px; }
 
   .dash-grid { grid-template-columns: 1fr; }
+
+  /* Course banner responsive */
+  .course-banner-inner { grid-template-columns: 1fr !important; }
+  .course-lower { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 768px) {
@@ -970,53 +974,199 @@ function buildCards() {
   window.addEventListener('resize', buildCards);
   buildCards();
 </script>
-<!-- ===== COURSES ===== -->
-<section class="courses" id="courses">
-  <div class="section-tag">Курсы</div>
-  <h2 class="section-title">Выбери свой уровень</h2>
-  <p class="section-sub">Структурированные программы от нуля до свободного владения языком</p>
-  <div class="courses-grid">
-    <div class="course-card">
-      <div class="course-top" style="background:linear-gradient(135deg,#6BBFDC,#4a9bbf)">
-        <span class="course-level">Beginner</span>
-        <span class="course-emoji">🌱</span>
-        <div class="course-name">English для начинающих</div>
+<!-- ===== COURSE SHOWCASE ===== -->
+<section class="courses" id="courses" style="background:white; padding:80px 60px;">
+
+  <div class="section-tag">Курс</div>
+  <h2 class="section-title">Upper-Intermediate & Advanced</h2>
+  <p class="section-sub">Один курс — всё, что нужно для уверенного владения английским на высоком уровне</p>
+
+  <!-- HERO COURSE CARD -->
+  <div style="
+    margin-top:48px;
+    border-radius:32px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.10);
+    border:2px solid rgba(212,98,58,.12);
+  ">
+
+    <!-- TOP BANNER -->
+    <div style="
+      background:linear-gradient(135deg,#E8714A 0%,#c04030 50%,#9b2d20 100%);
+      padding:48px 52px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:center;
+      gap:32px;
+      position:relative;
+      overflow:hidden;
+    " class="course-banner-inner">
+      <!-- Декоративные круги -->
+      <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.05);top:-100px;right:200px;"></div>
+      <div style="position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06);bottom:-80px;right:80px;"></div>
+
+      <div style="position:relative;z-index:1;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <span style="background:rgba(255,255,255,.2);color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:5px 14px;border-radius:50px;">🚀 Advanced</span>
+          <span style="background:var(--yellow);color:var(--dark);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:5px 14px;border-radius:50px;">Хит продаж</span>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:40px;color:white;line-height:1.15;margin-bottom:16px;">
+          Speak Like a Pro:<br>Advanced English Course
+        </h3>
+        <p style="color:rgba(255,255,255,.8);font-size:16px;line-height:1.7;max-width:520px;">
+          Полное погружение в продвинутый английский — деловая лексика, сложная грамматика, идиомы, подготовка к IELTS/TOEFL и академическое письмо. Курс для тех, кто хочет говорить уверенно и звучать убедительно.
+        </p>
+        <div style="display:flex;gap:28px;margin-top:24px;flex-wrap:wrap;">
+          <div style="color:white;"><span style="font-size:22px;font-weight:900;">48</span><span style="font-size:13px;opacity:.7;margin-left:6px;">уроков</span></div>
+          <div style="color:white;"><span style="font-size:22px;font-weight:900;">5</span><span style="font-size:13px;opacity:.7;margin-left:6px;">месяцев</span></div>
+          <div style="color:white;"><span style="font-size:22px;font-weight:900;">24</span><span style="font-size:13px;opacity:.7;margin-left:6px;">теста</span></div>
+          <div style="color:white;"><span style="font-size:22px;font-weight:900;">600+</span><span style="font-size:13px;opacity:.7;margin-left:6px;">упражнений</span></div>
+        </div>
       </div>
-      <div class="course-body">
-        <div class="course-desc">Алфавит, базовая грамматика, первые разговоры. 50+ практических упражнений на каждую тему. Идеально если ты только начинаешь.</div>
-        <div class="course-meta"><span>📚 24 урока</span><span>⏱ 3 месяца</span><span>📝 12 тестов</span></div>
-        <div class="course-price">4 900 ₸ <span>/ месяц</span></div>
-        <button class="btn btn-blue" style="width:100%" onclick="openModal('register')">Начать курс</button>
+
+      <!-- Price block -->
+      <div style="
+        position:relative;z-index:1;
+        background:rgba(255,255,255,.12);
+        backdrop-filter:blur(12px);
+        border:1.5px solid rgba(255,255,255,.25);
+        border-radius:24px;
+        padding:32px 28px;
+        text-align:center;
+        min-width:220px;
+      ">
+        <div style="font-size:13px;color:rgba(255,255,255,.6);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Стоимость</div>
+        <div style="font-size:56px;font-weight:900;color:white;font-family:'Cormorant Garamond',serif;line-height:1;">1 990 ₽</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:24px;margin-top:4px;">в месяц</div>
+        <button class="btn btn-yellow btn-big" style="width:100%;font-size:15px;" onclick="openModal('register')">Записаться →</button>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:10px;">Первый урок — бесплатно</div>
       </div>
     </div>
-    <div class="course-card">
-      <div class="course-top" style="background:linear-gradient(135deg,#F5C842,#e5a820)">
-        <span class="course-level">Intermediate</span>
-        <span class="course-emoji">⚡</span>
-        <div class="course-name">Pre-Intermediate & Intermediate</div>
+
+    <!-- WHAT'S INCLUDED -->
+    <div style="padding:40px 52px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:40px;" class="course-lower">
+      <div>
+        <div style="font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--coral);margin-bottom:20px;">Что входит в курс</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="width:36px;height:36px;background:rgba(212,98,58,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🎬</span>
+            <div><div style="font-weight:800;font-size:15px;">Видео-уроки от Дарины</div><div style="font-size:13px;color:#888;margin-top:2px;">Авторские объяснения без воды — только суть и живые примеры</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="width:36px;height:36px;background:rgba(90,174,201,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📚</span>
+            <div><div style="font-weight:800;font-size:15px;">Продвинутая лексика и идиомы</div><div style="font-size:13px;color:#888;margin-top:2px;">Фразовые глаголы, бизнес-выражения, разговорные обороты</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="width:36px;height:36px;background:rgba(232,184,75,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✏️</span>
+            <div><div style="font-weight:800;font-size:15px;">600+ упражнений с таймером</div><div style="font-size:13px;color:#888;margin-top:2px;">Грамматика, перевод, составление предложений, диктанты</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="width:36px;height:36px;background:rgba(125,201,122,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🎯</span>
+            <div><div style="font-weight:800;font-size:15px;">Подготовка к IELTS / TOEFL</div><div style="font-size:13px;color:#888;margin-top:2px;">Форматы экзаменов, стратегии и тренировочные тесты</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="width:36px;height:36px;background:rgba(242,167,195,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏆</span>
+            <div><div style="font-weight:800;font-size:15px;">Мем-оценка и трекер прогресса</div><div style="font-size:13px;color:#888;margin-top:2px;">Система, которая не даст тебе бросить — с юмором и характером</div></div>
+          </div>
+        </div>
       </div>
-      <div class="course-body">
-        <div class="course-desc">Сложная грамматика, говорение, чтение и аудирование на практических темах.</div>
-        <div class="course-meta"><span>📚 36 уроков</span><span>⏱ 4 месяца</span><span>📝 18 тестов</span></div>
-        <div class="course-price">7 900 ₸ <span>/ месяц</span></div>
-        <button class="btn btn-yellow" style="width:100%" onclick="openModal('register')">Начать курс</button>
+
+      <!-- MODULE LIST ACCORDION -->
+      <div>
+        <div style="font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--coral);margin-bottom:20px;">Программа курса</div>
+        <div id="modules-list" style="display:flex;flex-direction:column;gap:10px;">
+        </div>
+        <button onclick="toggleAllModules()" id="show-more-btn" style="
+          margin-top:16px;
+          background:none;border:2px solid var(--coral);color:var(--coral);
+          border-radius:50px;padding:9px 22px;font-weight:800;font-size:13px;
+          cursor:pointer;transition:all .2s;
+        " onmouseover="this.style.background='var(--coral)';this.style.color='white'"
+           onmouseout="this.style.background='none';this.style.color='var(--coral)'">
+          Показать все модули ↓
+        </button>
       </div>
     </div>
-    <div class="course-card">
-      <div class="course-top" style="background:linear-gradient(135deg,#E8714A,#c04030)">
-        <span class="course-level">Advanced</span>
-        <span class="course-emoji">🚀</span>
-        <div class="course-name">Upper-Intermediate & Advanced</div>
+
+    <!-- BOTTOM CTA -->
+    <div style="
+      padding:32px 52px;
+      background:white;
+      display:flex;align-items:center;justify-content:space-between;
+      border-top:2px solid var(--cream);
+      flex-wrap:wrap;gap:20px;
+    ">
+      <div style="display:flex;gap:32px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#666;">
+          <span style="font-size:20px;">✅</span> Доступ сразу после оплаты
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#666;">
+          <span style="font-size:20px;">📱</span> Учись с любого устройства
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#666;">
+          <span style="font-size:20px;">🔓</span> Доступ на весь курс
+        </div>
       </div>
-      <div class="course-body">
-        <div class="course-desc">Деловой английский, подготовка к IELTS/TOEFL, идиомы и академическое письмо.</div>
-        <div class="course-meta"><span>📚 48 уроков</span><span>⏱ 5 месяцев</span><span>📝 24 теста</span></div>
-        <div class="course-price">11 900 ₸ <span>/ месяц</span></div>
-        <button class="btn btn-fill" style="width:100%" onclick="openModal('register')">Начать курс</button>
-      </div>
+      <button class="btn btn-fill btn-big" onclick="openModal('register')" style="white-space:nowrap;">
+        Начать учиться →
+      </button>
     </div>
   </div>
 </section>
+
+<script>
+const courseModules = [
+  { num:'01', title:'Сложные времена и конструкции', lessons:6, locked:false },
+  { num:'02', title:'Деловая лексика и переписка', lessons:5, locked:false },
+  { num:'03', title:'Идиомы и фразовые глаголы', lessons:6, locked:false },
+  { num:'04', title:'Академическое письмо', lessons:5, locked:true },
+  { num:'05', title:'Говорение: дебаты и презентации', lessons:6, locked:true },
+  { num:'06', title:'Подготовка к IELTS — Reading', lessons:5, locked:true },
+  { num:'07', title:'Подготовка к IELTS — Listening', lessons:5, locked:true },
+  { num:'08', title:'Подготовка к TOEFL', lessons:5, locked:true },
+  { num:'09', title:'Нюансы произношения (C1)', lessons:4, locked:true },
+  { num:'10', title:'Финальный проект и экзамен', lessons:1, locked:true },
+];
+
+let modulesExpanded = false;
+
+function renderModules() {
+  const list = document.getElementById('modules-list');
+  const visible = modulesExpanded ? courseModules : courseModules.slice(0, 4);
+  list.innerHTML = visible.map(m => `
+    <div style="
+      display:flex;align-items:center;gap:14px;
+      background:${m.locked ? 'rgba(0,0,0,.02)' : 'white'};
+      border:1.5px solid ${m.locked ? '#eee' : 'rgba(212,98,58,.15)'};
+      border-radius:14px;padding:12px 16px;
+      transition:all .2s;
+    ">
+      <span style="
+        width:32px;height:32px;border-radius:8px;
+        background:${m.locked ? '#f0f0f0' : 'rgba(212,98,58,.1)'};
+        color:${m.locked ? '#bbb' : 'var(--coral)'};
+        font-size:11px;font-weight:900;
+        display:flex;align-items:center;justify-content:center;
+        flex-shrink:0;
+      ">${m.num}</span>
+      <div style="flex:1;">
+        <div style="font-weight:800;font-size:14px;color:${m.locked ? '#bbb' : 'var(--dark)'};">${m.title}</div>
+        <div style="font-size:12px;color:#aaa;">${m.lessons} урок${m.lessons===1?'':'а'}</div>
+      </div>
+      <span style="font-size:16px;">${m.locked ? '🔒' : '▶️'}</span>
+    </div>
+  `).join('');
+}
+
+function toggleAllModules() {
+  modulesExpanded = !modulesExpanded;
+  renderModules();
+  const btn = document.getElementById('show-more-btn');
+  btn.textContent = modulesExpanded ? 'Скрыть ↑' : 'Показать все модули ↓';
+}
+
+renderModules();
+</script>
 
 <!-- ===== DASHBOARD PREVIEW ===== -->
 <section class="dashboard" id="dashboard">
@@ -1290,52 +1440,7 @@ function ltRestart() {
 
 ltRender();
 </script>
-<!-- ===== PRICING ===== -->
-<section class="pricing" id="pricing">
-  <div class="section-tag">Тарифы</div>
-  <h2 class="section-title">Честные цены без скрытых платежей</h2>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-name">Старт</div>
-      <div class="price-amount">4 900 ₸</div>
-      <div class="price-period">в месяц</div>
-      <ul class="price-features">
-        <li>1 курс на выбор</li>
-        <li>Доступ к урокам 24/7</li>
-        <li>5 тестов в месяц</li>
-        <li>Личный кабинет</li>
-      </ul>
-      <button class="btn btn-outline" style="width:100%" onclick="openModal('register')">Выбрать</button>
-    </div>
-    <div class="price-card featured">
-      <div class="price-tag">Популярный</div>
-      <div class="price-name">Про</div>
-      <div class="price-amount" style="color:var(--yellow)">9 900 ₸</div>
-      <div class="price-period">в месяц</div>
-      <ul class="price-features">
-        <li>Все курсы включены</li>
-        <li>Неограниченные тесты</li>
-        <li>2 живых урока в месяц</li>
-        <li>Обратная связь от учителя</li>
-        <li>Сертификаты об окончании</li>
-      </ul>
-      <button class="btn btn-yellow" style="width:100%" onclick="openModal('register')">Выбрать</button>
-    </div>
-    <div class="price-card">
-      <div class="price-name">Интенсив</div>
-      <div class="price-amount">19 900 ₸</div>
-      <div class="price-period">в месяц</div>
-      <ul class="price-features">
-        <li>Всё из тарифа Про</li>
-        <li>8 живых уроков в месяц</li>
-        <li>Персональная программа</li>
-        <li>Подготовка к IELTS/TOEFL</li>
-        <li>Приоритетная поддержка</li>
-      </ul>
-      <button class="btn btn-fill" style="width:100%" onclick="openModal('register')">Выбрать</button>
-    </div>
-  </div>
-</section>
+<!-- Pricing section removed — price is now inside the course card -->
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -1347,18 +1452,18 @@ ltRender();
  <div class="footer-desc">Онлайн-школа английского языка с персональным подходом. Учись в своём темпе, получай реальные результаты.</div>
     </div>
     <div class="footer-col">
-      <h4>Курсы</h4>
-      <a href="#courses">Beginner</a>
-      <a href="#courses">Intermediate</a>
-      <a href="#courses">Advanced</a>
-      <a href="#courses">Бизнес-English</a>
+      <h4>Курс</h4>
+      <a href="#courses">Speak Like a Pro</a>
+      <a href="#courses">Программа</a>
+      <a href="#how">Как устроен урок</a>
+      <a href="#tests">Тест уровня</a>
     </div>
     <div class="footer-col">
       <h4>Платформа</h4>
       <a href="#how">Как работает</a>
       <a href="#tests">Тесты</a>
       <a href="#dashboard">Личный кабинет</a>
-      <a href="#pricing">Сертификаты</a>
+      <a href="#about">О преподавателе</a>
     </div>
     <div class="footer-col">
       <h4>Контакты</h4>
