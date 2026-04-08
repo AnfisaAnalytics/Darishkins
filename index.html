@@ -261,14 +261,15 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
   .course-card {
     border-radius: var(--radius);
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 4px 20px rgba(0,0,0,.06);
     transition: transform .2s, box-shadow .2s;
     background: white;
     border: 2px solid transparent;
+    position: relative;
   }
   .course-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,.12); border-color: var(--yellow); }
-  .course-top { padding: 32px 28px 24px; position: relative; min-height: 160px; }
+  .course-top { padding: 32px 28px 24px; position: relative; min-height: 160px; border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0; overflow:hidden; }
   .course-level {
     display: inline-block; font-size: 11px; font-weight: 800;
     text-transform: uppercase; letter-spacing: 1px;
@@ -521,6 +522,7 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .courses-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  #tariff-grid { grid-template-columns: 1fr !important; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -528,9 +530,7 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
 
   .dash-grid { grid-template-columns: 1fr; }
 
-  /* Course banner responsive */
-  .course-banner-inner { grid-template-columns: 1fr !important; }
-  .course-lower { grid-template-columns: 1fr !important; }
+  #beyond-basics > div:last-of-type { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -679,6 +679,240 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
    </div>
 </section>
 
+<!-- ===== HIT PRODUCT: BEYOND BASICS ===== -->
+<section id="beyond-basics" style="background:white; padding:80px 60px;">
+
+  <!-- Badge -->
+  <div style="text-align:center; margin-bottom:48px;">
+    <span style="
+      display:inline-block;
+      background:linear-gradient(135deg,var(--coral),#e84a8c);
+      color:white; font-weight:900; font-size:13px;
+      text-transform:uppercase; letter-spacing:2px;
+      padding:8px 24px; border-radius:50px;
+      box-shadow:0 6px 20px rgba(212,98,58,.35);
+    ">🔥 Хит продаж</span>
+  </div>
+
+  <!-- Two-column layout -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+
+    <!-- LEFT: Course info card -->
+    <div style="
+      background:linear-gradient(145deg, var(--cream) 0%, #fff 100%);
+      border-radius:32px; padding:44px;
+      border:2px solid rgba(232,184,75,.3);
+      box-shadow: 0 12px 50px rgba(0,0,0,.07);
+      position:relative; overflow:hidden;
+    ">
+      <!-- Decorative blob -->
+      <div style="
+        position:absolute; top:-40px; right:-40px;
+        width:160px; height:160px; border-radius:50%;
+        background:var(--yellow); opacity:.12;
+      "></div>
+
+      <div style="font-size:13px;font-weight:800;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Курс по лексике</div>
+
+      <h2 style="
+        font-family:'Cormorant Garamond',serif;
+        font-size:34px; line-height:1.2; margin-bottom:6px;
+      ">Beyond Basics:<br><em style="color:var(--coral)">Advanced Everyday English</em></h2>
+
+      <p style="font-size:14px; color:#888; margin-bottom:28px; line-height:1.6;">
+        За рамки основ: Продвинутая лексика для повседневной жизни
+      </p>
+
+      <p style="font-size:15px; color:#555; line-height:1.8; margin-bottom:24px;">
+        Этот курс позволит вам детально овладеть лексикой, с которой вы столкнетесь в быту за границей, но которую не изучают на уровнях А1–В2.
+      </p>
+
+      <!-- Features list -->
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:32px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:600;color:var(--dark)">
+          <span style="color:var(--green);font-size:16px;flex-shrink:0;">✔️</span>
+          <span><strong>7 объёмных уроков</strong> по темам: <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.Обустройство дома, бытовые проблемы, ремонт <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2.Еда, кухонная утварь, кулинария<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.Машина, дорожные ситуации<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4. Внешность, одежда, стиль<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5. Медицина, прием у доктора<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6. Интернет, социальные сети<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  7. Банк, финансы</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--dark)">
+          <span style="color:var(--green);font-size:16px;">✔️</span>
+          <span>20 часов на освоение курса</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--dark)">
+          <span style="color:var(--green);font-size:16px;">✔️</span>
+          <span>Комплекс упражнений на отработку</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--dark)">
+          <span style="color:var(--green);font-size:16px;">✔️</span>
+          <span>Встроенная система проверки ответов</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--dark)">
+          <span style="color:var(--green);font-size:16px;">✔️</span>
+          <span>Доступ к новому уроку только после выполнения всех упражнений предыдущего</span>
+        </div>
+      </div>
+
+      <!-- Price + CTA -->
+      <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;">Стоимость</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:900; color:var(--dark); line-height:1.1;">Скоро</div>
+        </div>
+        <button class="btn btn-fill btn-big" onclick="openModal('register')" style="flex:1; min-width:160px;">
+          Записаться →
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Screenshot carousel -->
+    <div>
+      <div style="font-size:13px;font-weight:800;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">Как выглядят упражнения</div>
+
+      <div style="position:relative; border-radius:24px; overflow:hidden; box-shadow:0 16px 50px rgba(0,0,0,.12);">
+
+        <!-- Carousel track -->
+        <div id="screenshotTrack" style="
+          display:flex;
+          transition: transform .45s cubic-bezier(.4,0,.2,1);
+          will-change:transform;
+        ">
+          <!-- Placeholder slides — replace src values with real screenshot filenames -->
+          <div class="ss-slide" style="flex:0 0 100%; position:relative;">
+            <img src="screen1.png" alt="Скриншот урока 1"
+              style="width:100%; height:auto; display:block; border-radius:24px;"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none; width:100%; aspect-ratio:4/3; border-radius:24px;
+              background:linear-gradient(135deg,var(--blue),var(--yellow));
+              align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center; padding:32px;">
+              <div style="font-size:48px; margin-bottom:12px;">🖼️</div>
+              <div style="font-size:16px; font-weight:800;">Скриншот урока 1</div>
+              <div style="font-size:13px; opacity:.75; margin-top:6px;">Добавьте файл screen1.png</div>
+            </div>
+          </div>
+          <div class="ss-slide" style="flex:0 0 100%; position:relative;">
+            <img src="screen2.png" alt="Скриншот урока 2"
+              style="width:100%; height:auto; display:block; border-radius:24px;"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none; width:100%; aspect-ratio:4/3; border-radius:24px;
+              background:linear-gradient(135deg,var(--coral),#e84a8c);
+              align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center; padding:32px;">
+              <div style="font-size:48px; margin-bottom:12px;">🖼️</div>
+              <div style="font-size:16px; font-weight:800;">Скриншот урока 2</div>
+              <div style="font-size:13px; opacity:.75; margin-top:6px;">Добавьте файл screen2.png</div>
+            </div>
+          </div>
+          <div class="ss-slide" style="flex:0 0 100%; position:relative;">
+            <img src="screen3.png" alt="Скриншот урока 3"
+              style="width:100%; height:auto; display:block; border-radius:24px;"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none; width:100%; aspect-ratio:4/3; border-radius:24px;
+              background:linear-gradient(135deg,var(--green),var(--blue));
+              align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center; padding:32px;">
+              <div style="font-size:48px; margin-bottom:12px;">🖼️</div>
+              <div style="font-size:16px; font-weight:800;">Скриншот урока 3</div>
+              <div style="font-size:13px; opacity:.75; margin-top:6px;">Добавьте файл screen3.png</div>
+            </div>
+          </div>
+          <div class="ss-slide" style="flex:0 0 100%; position:relative;">
+            <img src="screen4.png" alt="Скриншот урока 4"
+              style="width:100%; height:auto; display:block; border-radius:24px;"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none; width:100%; aspect-ratio:4/3; border-radius:24px;
+              background:linear-gradient(135deg,var(--yellow),var(--coral));
+              align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center; padding:32px;">
+              <div style="font-size:48px; margin-bottom:12px;">🖼️</div>
+              <div style="font-size:16px; font-weight:800;">Скриншот урока 4</div>
+              <div style="font-size:13px; opacity:.75; margin-top:6px;">Добавьте файл screen4.png</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prev / Next buttons -->
+        <button onclick="moveScreenshots(-1)" style="
+          position:absolute; left:12px; top:50%; transform:translateY(-50%);
+          width:40px; height:40px; border-radius:50%;
+          background:rgba(255,255,255,.9); border:none; cursor:pointer;
+          font-size:18px; box-shadow:0 4px 14px rgba(0,0,0,.15);
+          display:flex; align-items:center; justify-content:center;
+          z-index:5; transition:box-shadow .2s;
+        " onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,.25)'"
+           onmouseout="this.style.boxShadow='0 4px 14px rgba(0,0,0,.15)'">‹</button>
+        <button onclick="moveScreenshots(1)" style="
+          position:absolute; right:12px; top:50%; transform:translateY(-50%);
+          width:40px; height:40px; border-radius:50%;
+          background:rgba(255,255,255,.9); border:none; cursor:pointer;
+          font-size:18px; box-shadow:0 4px 14px rgba(0,0,0,.15);
+          display:flex; align-items:center; justify-content:center;
+          z-index:5; transition:box-shadow .2s;
+        " onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,.25)'"
+           onmouseout="this.style.boxShadow='0 4px 14px rgba(0,0,0,.15)'">›</button>
+      </div>
+
+      <!-- Dots -->
+      <div id="ssDots" style="display:flex; justify-content:center; gap:8px; margin-top:16px;"></div>
+
+      <!-- Caption -->
+      <p style="text-align:center; font-size:13px; color:#aaa; margin-top:10px;">
+        Нажмите на изображение для увеличения
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  /* ===== SCREENSHOT CAROUSEL ===== */
+  const ssSlides = document.querySelectorAll('.ss-slide');
+  let ssCurrent = 0;
+
+  function ssGoTo(idx) {
+    ssCurrent = (idx + ssSlides.length) % ssSlides.length;
+    document.getElementById('screenshotTrack').style.transform = `translateX(-${ssCurrent * 100}%)`;
+    document.querySelectorAll('.ss-dot').forEach((d, i) => {
+      d.style.width   = i === ssCurrent ? '24px' : '8px';
+      d.style.background = i === ssCurrent ? 'var(--coral)' : '#ddd';
+    });
+  }
+
+  function moveScreenshots(dir) { ssGoTo(ssCurrent + dir); }
+
+  // Build dots
+  const ssDots = document.getElementById('ssDots');
+  ssSlides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'ss-dot';
+    d.style.cssText = `width:${i===0?'24px':'8px'};height:8px;border-radius:50px;background:${i===0?'var(--coral)':'#ddd'};cursor:pointer;transition:all .3s;`;
+    d.onclick = () => ssGoTo(i);
+    ssDots.appendChild(d);
+  });
+
+  // Click to enlarge
+  document.querySelectorAll('.ss-slide img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:24px;';
+      const big = document.createElement('img');
+      big.src = img.src;
+      big.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.5);';
+      overlay.appendChild(big);
+      overlay.onclick = () => document.body.removeChild(overlay);
+      document.body.appendChild(overlay);
+    });
+  });
+
+  // Auto-play
+  let ssTimer = setInterval(() => moveScreenshots(1), 3500);
+  document.getElementById('screenshotTrack').addEventListener('mouseenter', () => clearInterval(ssTimer));
+  document.getElementById('screenshotTrack').addEventListener('mouseleave', () => { ssTimer = setInterval(() => moveScreenshots(1), 3500); });
+</script>
+
 <!-- ===== WHY JOIN JOY ===== -->
 <section style="background:var(--cream);padding:60px 60px 40px">
   <div class="section-tag"></div>
@@ -722,38 +956,7 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   </div>
 </section>
 
-<!-- ===== HOW A LESSON WORKS ===== -->
-<section class="how" id="how">
-  <div class="section-tag">Как устроен урок</div>
-  <h2 class="section-title">Каждый урок — это система</h2>
-  <p class="section-sub">Никакой воды. Только практика, которая реально работает.</p>
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-icon" style="background:rgba(245,200,66,.2)">🎬</div>
-      <div class="step-title">Видео-объяснение</div>
-      <div class="step-desc">Короткое и понятное видео от Дарины — тема раскрыта без воды, с примерами из жизни</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-icon" style="background:rgba(107,191,220,.2)">📋</div>
-      <div class="step-title">Словарь и фразы</div>
-      <div class="step-desc">Список слов и выражений по теме с произношением — то, что реально используют носители</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-icon" style="background:rgba(232,113,74,.2)">✏️</div>
-      <div class="step-title">50+ упражнений</div>
-      <div class="step-desc">Заполни пропуски, переведи, составь предложение. Таймер не даст расслабиться</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <div class="step-icon" style="background:rgba(125,201,122,.2)">🏅</div>
-      <div class="step-title">Мем-оценка</div>
-      <div class="step-desc">В конце получаешь оценку в виде мема — и только потом открывается следующий урок</div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ===== ABOUT TEACHER ===== -->
 <section id="about" style="background:var(--cream)">
@@ -974,199 +1177,214 @@ function buildCards() {
   window.addEventListener('resize', buildCards);
   buildCards();
 </script>
-<!-- ===== COURSE SHOWCASE ===== -->
-<section class="courses" id="courses" style="background:white; padding:80px 60px;">
 
-  <div class="section-tag">Курс</div>
-  <h2 class="section-title">Upper-Intermediate & Advanced</h2>
-  <p class="section-sub">Один курс — всё, что нужно для уверенного владения английским на высоком уровне</p>
+<!-- ===== TARIFFS ===== -->
+<section id="pricing" style="background:var(--cream); padding:80px 60px;">
+  <div class="section-tag">Тарифы</div>
+  <h2 class="section-title">Выбери свой формат</h2>
+  <p class="section-sub" style="margin-bottom:48px;">Честные цены без скрытых платежей. Начни с одного курса или получи доступ ко всей платформе.</p>
 
-  <!-- HERO COURSE CARD -->
-  <div style="
-    margin-top:48px;
-    border-radius:32px;
-    overflow:hidden;
-    box-shadow:0 20px 60px rgba(0,0,0,.10);
-    border:2px solid rgba(212,98,58,.12);
-  ">
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start;" id="tariff-grid">
 
-    <!-- TOP BANNER -->
+    <!-- ТАРИФ 1: Один курс -->
     <div style="
-      background:linear-gradient(135deg,#E8714A 0%,#c04030 50%,#9b2d20 100%);
-      padding:48px 52px;
-      display:grid;
-      grid-template-columns:1fr auto;
-      align-items:center;
-      gap:32px;
+      background:white; border-radius:28px; padding:40px 32px;
+      border:2.5px solid #eee;
+      box-shadow:0 4px 24px rgba(0,0,0,.05);
+      transition:transform .2s, box-shadow .2s;
       position:relative;
-      overflow:hidden;
-    " class="course-banner-inner">
-      <!-- Декоративные круги -->
-      <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.05);top:-100px;right:200px;"></div>
-      <div style="position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06);bottom:-80px;right:80px;"></div>
-
-      <div style="position:relative;z-index:1;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-          <span style="background:rgba(255,255,255,.2);color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:5px 14px;border-radius:50px;">🚀 Advanced</span>
-          <span style="background:var(--yellow);color:var(--dark);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:5px 14px;border-radius:50px;">Хит продаж</span>
-        </div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:40px;color:white;line-height:1.15;margin-bottom:16px;">
-          Speak Like a Pro:<br>Advanced English Course
-        </h3>
-        <p style="color:rgba(255,255,255,.8);font-size:16px;line-height:1.7;max-width:520px;">
-          Полное погружение в продвинутый английский — деловая лексика, сложная грамматика, идиомы, подготовка к IELTS/TOEFL и академическое письмо. Курс для тех, кто хочет говорить уверенно и звучать убедительно.
-        </p>
-        <div style="display:flex;gap:28px;margin-top:24px;flex-wrap:wrap;">
-          <div style="color:white;"><span style="font-size:22px;font-weight:900;">48</span><span style="font-size:13px;opacity:.7;margin-left:6px;">уроков</span></div>
-          <div style="color:white;"><span style="font-size:22px;font-weight:900;">5</span><span style="font-size:13px;opacity:.7;margin-left:6px;">месяцев</span></div>
-          <div style="color:white;"><span style="font-size:22px;font-weight:900;">24</span><span style="font-size:13px;opacity:.7;margin-left:6px;">теста</span></div>
-          <div style="color:white;"><span style="font-size:22px;font-weight:900;">600+</span><span style="font-size:13px;opacity:.7;margin-left:6px;">упражнений</span></div>
-        </div>
-      </div>
-
-      <!-- Price block -->
-      <div style="
-        position:relative;z-index:1;
-        background:rgba(255,255,255,.12);
-        backdrop-filter:blur(12px);
-        border:1.5px solid rgba(255,255,255,.25);
-        border-radius:24px;
-        padding:32px 28px;
-        text-align:center;
-        min-width:220px;
-      ">
-        <div style="font-size:13px;color:rgba(255,255,255,.6);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Стоимость</div>
-        <div style="font-size:56px;font-weight:900;color:white;font-family:'Cormorant Garamond',serif;line-height:1;">1 990 ₽</div>
-        <div style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:24px;margin-top:4px;">в месяц</div>
-        <button class="btn btn-yellow btn-big" style="width:100%;font-size:15px;" onclick="openModal('register')">Записаться →</button>
-        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:10px;">Первый урок — бесплатно</div>
-      </div>
+    " onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,.10)'"
+       onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(0,0,0,.05)'">
+      <div style="font-size:40px; margin-bottom:16px;">📖</div>
+      <div style="font-size:13px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Базовый</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:900;line-height:1;margin-bottom:4px;">Скоро</div>
+      <div style="font-size:13px;color:#aaa;margin-bottom:28px;">/ доступ к 1 курсу</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Полный доступ к 1 курсу на выбор
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Все уроки и упражнения курса
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Встроенная проверка ответов
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Доступ навсегда после оплаты
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#bbb;">
+          <span style="width:22px;height:22px;background:#eee;color:#ccc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✕</span>
+          Доступ к другим курсам
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#bbb;">
+          <span style="width:22px;height:22px;background:#eee;color:#ccc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✕</span>
+          Живая практика с преподавателем
+        </li>
+      </ul>
+      <button class="btn btn-outline" style="width:100%;font-size:15px;padding:14px;" onclick="openModal('register')">Выбрать</button>
     </div>
 
-    <!-- WHAT'S INCLUDED -->
-    <div style="padding:40px 52px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:40px;" class="course-lower">
-      <div>
-        <div style="font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--coral);margin-bottom:20px;">Что входит в курс</div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;align-items:flex-start;gap:14px;">
-            <span style="width:36px;height:36px;background:rgba(212,98,58,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🎬</span>
-            <div><div style="font-weight:800;font-size:15px;">Видео-уроки от Дарины</div><div style="font-size:13px;color:#888;margin-top:2px;">Авторские объяснения без воды — только суть и живые примеры</div></div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;">
-            <span style="width:36px;height:36px;background:rgba(90,174,201,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📚</span>
-            <div><div style="font-weight:800;font-size:15px;">Продвинутая лексика и идиомы</div><div style="font-size:13px;color:#888;margin-top:2px;">Фразовые глаголы, бизнес-выражения, разговорные обороты</div></div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;">
-            <span style="width:36px;height:36px;background:rgba(232,184,75,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✏️</span>
-            <div><div style="font-weight:800;font-size:15px;">600+ упражнений с таймером</div><div style="font-size:13px;color:#888;margin-top:2px;">Грамматика, перевод, составление предложений, диктанты</div></div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;">
-            <span style="width:36px;height:36px;background:rgba(125,201,122,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🎯</span>
-            <div><div style="font-weight:800;font-size:15px;">Подготовка к IELTS / TOEFL</div><div style="font-size:13px;color:#888;margin-top:2px;">Форматы экзаменов, стратегии и тренировочные тесты</div></div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;">
-            <span style="width:36px;height:36px;background:rgba(242,167,195,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏆</span>
-            <div><div style="font-weight:800;font-size:15px;">Мем-оценка и трекер прогресса</div><div style="font-size:13px;color:#888;margin-top:2px;">Система, которая не даст тебе бросить — с юмором и характером</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE LIST ACCORDION -->
-      <div>
-        <div style="font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--coral);margin-bottom:20px;">Программа курса</div>
-        <div id="modules-list" style="display:flex;flex-direction:column;gap:10px;">
-        </div>
-        <button onclick="toggleAllModules()" id="show-more-btn" style="
-          margin-top:16px;
-          background:none;border:2px solid var(--coral);color:var(--coral);
-          border-radius:50px;padding:9px 22px;font-weight:800;font-size:13px;
-          cursor:pointer;transition:all .2s;
-        " onmouseover="this.style.background='var(--coral)';this.style.color='white'"
-           onmouseout="this.style.background='none';this.style.color='var(--coral)'">
-          Показать все модули ↓
-        </button>
-      </div>
-    </div>
-
-    <!-- BOTTOM CTA -->
+    <!-- ТАРИФ 2: Полный доступ (FEATURED) -->
     <div style="
-      padding:32px 52px;
-      background:white;
-      display:flex;align-items:center;justify-content:space-between;
-      border-top:2px solid var(--cream);
-      flex-wrap:wrap;gap:20px;
+      background:var(--dark); color:white; border-radius:28px; padding:40px 32px;
+      border:2.5px solid var(--dark);
+      box-shadow:0 16px 50px rgba(45,42,38,.22);
+      transition:transform .2s, box-shadow .2s;
+      position:relative;
+    " onmouseover="this.style.transform='translateY(-6px)'"
+       onmouseout="this.style.transform=''">
+      <!-- Popular badge -->
+      <div style="
+        position:absolute; top:-15px; left:50%; transform:translateX(-50%);
+        background:linear-gradient(135deg,var(--coral),#e84a8c); color:white;
+        font-size:12px; font-weight:800; letter-spacing:1px;
+        padding:5px 20px; border-radius:50px; text-transform:uppercase; white-space:nowrap;
+      ">⭐ Выгоднее всего</div>
+
+      <div style="font-size:40px; margin-bottom:16px;">🌐</div>
+      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Полный доступ</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:900;line-height:1;margin-bottom:4px;color:var(--yellow);">Скоро</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:28px;">/ доступ ко всем курсам</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85);">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Все курсы платформы — сразу
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85);">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Новые курсы по мере выхода
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85);">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Все уроки, упражнения и проверки
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85);">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Личный кабинет и трекер прогресса
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85);">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Доступ навсегда после оплаты
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.4);">
+          <span style="width:22px;height:22px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✕</span>
+          Живая практика с преподавателем
+        </li>
+      </ul>
+      <button class="btn btn-yellow" style="width:100%;font-size:15px;padding:14px;" onclick="openModal('register')">Выбрать</button>
+    </div>
+
+    <!-- ТАРИФ 3: С живой практикой (СКОРО) -->
+    <div style="
+      background:white; border-radius:28px; padding:40px 32px;
+      border:2.5px dashed #e0d8cf;
+      box-shadow:0 4px 24px rgba(0,0,0,.04);
+      position:relative; opacity:.85;
     ">
-      <div style="display:flex;gap:32px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#666;">
-          <span style="font-size:20px;">✅</span> Доступ сразу после оплаты
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#666;">
-          <span style="font-size:20px;">📱</span> Учись с любого устройства
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#666;">
-          <span style="font-size:20px;">🔓</span> Доступ на весь курс
-        </div>
+      <!-- Coming soon badge -->
+      <div style="
+        position:absolute; top:-15px; left:50%; transform:translateX(-50%);
+        background:var(--blue); color:white;
+        font-size:12px; font-weight:800; letter-spacing:1px;
+        padding:5px 20px; border-radius:50px; text-transform:uppercase; white-space:nowrap;
+      ">🔜 Скоро</div>
+
+      <div style="font-size:40px; margin-bottom:16px;">🎙️</div>
+      <div style="font-size:13px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">С практикой</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:900;line-height:1;margin-bottom:4px;color:#bbb;">—</div>
+      <div style="font-size:13px;color:#aaa;margin-bottom:28px;">/ готовится</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Всё из тарифа «Полный доступ»
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Живые разговорные сессии
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Практика с Дариной или преподавателем
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Разбор ошибок и обратная связь
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Отработка пройденных тем вживую
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;">
+          <span style="width:22px;height:22px;background:var(--green);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;">✓</span>
+          Персональная программа занятий
+        </li>
+      </ul>
+      <button class="btn" style="width:100%;font-size:15px;padding:14px;background:#f0ebe3;color:#bbb;cursor:default;border-radius:50px;border:none;font-weight:800;">Скоро доступно</button>
+    </div>
+
+  </div>
+
+  <!-- Bottom note -->
+  <p style="text-align:center;margin-top:36px;font-size:14px;color:#aaa;">
+    💬 Остались вопросы по тарифам? <a href="#" style="color:var(--coral);font-weight:700;text-decoration:none;" onclick="openModal('trial');return false;">Напишите нам</a>
+  </p>
+</section>
+
+<!-- ===== COURSES ===== -->
+<section class="courses" id="courses">
+  <div class="section-tag">Курсы</div>
+  <h2 class="section-title">Выбери свой уровень</h2>
+  <p class="section-sub">Структурированные программы от нуля до свободного владения языком</p>
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="course-top" style="background:linear-gradient(135deg,#6BBFDC,#4a9bbf)">
+        <span class="course-level">Beginner</span>
+        <span class="course-emoji">🌱</span>
+        <div class="course-name">English для начинающих</div>
       </div>
-      <button class="btn btn-fill btn-big" onclick="openModal('register')" style="white-space:nowrap;">
-        Начать учиться →
-      </button>
+      <div class="course-body">
+        <div class="course-desc">Алфавит, базовая грамматика, первые разговоры. 50+ практических упражнений на каждую тему. Идеально если ты только начинаешь.</div>
+        <div class="course-meta"><span>📚 24 урока</span><span>⏱ 3 месяца</span><span>📝 12 тестов</span></div>
+        <div class="course-price">4 900 ₸ <span>/ месяц</span></div>
+        <button class="btn btn-blue" style="width:100%" onclick="openModal('register')">Начать курс</button>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-top" style="background:linear-gradient(135deg,#F5C842,#e5a820)">
+        <span class="course-level">Intermediate</span>
+        <span class="course-emoji">⚡</span>
+        <div class="course-name">Pre-Intermediate & Intermediate</div>
+      </div>
+      <div class="course-body">
+        <div class="course-desc">Сложная грамматика, говорение, чтение и аудирование на практических темах.</div>
+        <div class="course-meta"><span>📚 36 уроков</span><span>⏱ 4 месяца</span><span>📝 18 тестов</span></div>
+        <div class="course-price">7 900 ₸ <span>/ месяц</span></div>
+        <button class="btn btn-yellow" style="width:100%" onclick="openModal('register')">Начать курс</button>
+      </div>
+    </div>
+    <div class="course-card" style="border:2px solid var(--coral);">
+      <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+        background:linear-gradient(135deg,var(--coral),#e84a8c);color:white;
+        font-size:12px;font-weight:800;letter-spacing:1px;
+        padding:5px 18px;border-radius:50px;text-transform:uppercase;white-space:nowrap;">🔥 Хит продаж</div>
+      <div class="course-top" style="background:linear-gradient(135deg,#E8714A,#c04030); position:relative;">
+        <span class="course-level">Upper-Intermediate+</span>
+        <span class="course-emoji">🗣️</span>
+        <div class="course-name">Beyond Basics: Advanced Everyday English</div>
+      </div>
+      <div class="course-body">
+        <div class="course-desc">Продвинутая лексика для повседневной жизни — слова и выражения, которые используются в быту за границей, но не изучаются на уровнях А1–В2.</div>
+        <div class="course-meta"><span>📚 7 уроков</span><span>⏱ 20 часов</span><span>✅ Авт. проверка</span></div>
+        <div class="course-price">Скоро <span>/ стоимость</span></div>
+        <button class="btn btn-fill" style="width:100%;background:linear-gradient(135deg,var(--coral),#e84a8c)" onclick="openModal('register')">Записаться</button>
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-const courseModules = [
-  { num:'01', title:'Сложные времена и конструкции', lessons:6, locked:false },
-  { num:'02', title:'Деловая лексика и переписка', lessons:5, locked:false },
-  { num:'03', title:'Идиомы и фразовые глаголы', lessons:6, locked:false },
-  { num:'04', title:'Академическое письмо', lessons:5, locked:true },
-  { num:'05', title:'Говорение: дебаты и презентации', lessons:6, locked:true },
-  { num:'06', title:'Подготовка к IELTS — Reading', lessons:5, locked:true },
-  { num:'07', title:'Подготовка к IELTS — Listening', lessons:5, locked:true },
-  { num:'08', title:'Подготовка к TOEFL', lessons:5, locked:true },
-  { num:'09', title:'Нюансы произношения (C1)', lessons:4, locked:true },
-  { num:'10', title:'Финальный проект и экзамен', lessons:1, locked:true },
-];
-
-let modulesExpanded = false;
-
-function renderModules() {
-  const list = document.getElementById('modules-list');
-  const visible = modulesExpanded ? courseModules : courseModules.slice(0, 4);
-  list.innerHTML = visible.map(m => `
-    <div style="
-      display:flex;align-items:center;gap:14px;
-      background:${m.locked ? 'rgba(0,0,0,.02)' : 'white'};
-      border:1.5px solid ${m.locked ? '#eee' : 'rgba(212,98,58,.15)'};
-      border-radius:14px;padding:12px 16px;
-      transition:all .2s;
-    ">
-      <span style="
-        width:32px;height:32px;border-radius:8px;
-        background:${m.locked ? '#f0f0f0' : 'rgba(212,98,58,.1)'};
-        color:${m.locked ? '#bbb' : 'var(--coral)'};
-        font-size:11px;font-weight:900;
-        display:flex;align-items:center;justify-content:center;
-        flex-shrink:0;
-      ">${m.num}</span>
-      <div style="flex:1;">
-        <div style="font-weight:800;font-size:14px;color:${m.locked ? '#bbb' : 'var(--dark)'};">${m.title}</div>
-        <div style="font-size:12px;color:#aaa;">${m.lessons} урок${m.lessons===1?'':'а'}</div>
-      </div>
-      <span style="font-size:16px;">${m.locked ? '🔒' : '▶️'}</span>
-    </div>
-  `).join('');
-}
-
-function toggleAllModules() {
-  modulesExpanded = !modulesExpanded;
-  renderModules();
-  const btn = document.getElementById('show-more-btn');
-  btn.textContent = modulesExpanded ? 'Скрыть ↑' : 'Показать все модули ↓';
-}
-
-renderModules();
-</script>
 
 <!-- ===== DASHBOARD PREVIEW ===== -->
 <section class="dashboard" id="dashboard">
@@ -1440,7 +1658,6 @@ function ltRestart() {
 
 ltRender();
 </script>
-<!-- Pricing section removed — price is now inside the course card -->
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -1452,18 +1669,18 @@ ltRender();
  <div class="footer-desc">Онлайн-школа английского языка с персональным подходом. Учись в своём темпе, получай реальные результаты.</div>
     </div>
     <div class="footer-col">
-      <h4>Курс</h4>
-      <a href="#courses">Speak Like a Pro</a>
-      <a href="#courses">Программа</a>
-      <a href="#how">Как устроен урок</a>
-      <a href="#tests">Тест уровня</a>
+      <h4>Курсы</h4>
+      <a href="#courses">Beginner</a>
+      <a href="#courses">Intermediate</a>
+      <a href="#courses">Advanced</a>
+      <a href="#courses">Бизнес-English</a>
     </div>
     <div class="footer-col">
       <h4>Платформа</h4>
       <a href="#how">Как работает</a>
       <a href="#tests">Тесты</a>
       <a href="#dashboard">Личный кабинет</a>
-      <a href="#about">О преподавателе</a>
+      <a href="#pricing">Сертификаты</a>
     </div>
     <div class="footer-col">
       <h4>Контакты</h4>
