@@ -570,6 +570,84 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
   .section-title { font-size: 26px; }
   .nav-links .btn-outline { display: none; }
 }
+
+/* === TRIAL LESSON TOOLTIP === */
+.trial-btn-wrap { position: relative; display: inline-block; }
+.trial-tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--dark);
+  border-radius: 20px;
+  padding: 22px 26px;
+  width: 300px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .22s ease, transform .22s ease;
+  box-shadow: 0 20px 50px rgba(0,0,0,.32);
+  border: 1px solid rgba(255,255,255,.08);
+  z-index: 999;
+}
+.trial-btn-wrap:hover .trial-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.tt-arrow {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 7px;
+  overflow: hidden;
+}
+.tt-arrow::after {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  background: var(--dark);
+  transform: rotate(45deg);
+  top: -6px; left: 1px;
+  border-right: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.tt-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.tt-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+.tt-row:first-of-type { padding-top: 0; }
+.tt-icon {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.tt-label { font-size: 12px; color: rgba(255,255,255,.4); font-weight: 700; }
+.tt-val { font-size: 15px; color: white; font-weight: 800; }
+.tt-head {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--yellow);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.tt-free {
+  display: inline-block;
+  background: rgba(125,201,122,.2);
+  color: var(--green);
+  font-size: 11px; font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 50px;
+  border: 1px solid rgba(125,201,122,.3);
+  margin-bottom: 14px;
+}
 </style>
 </head>
 <body>
@@ -617,7 +695,32 @@ box-shadow: 0 4px 20px rgba(0,0,0,.06);
       <!-- <strong>Бесплатный пробный урок</strong> -->
     </p>
     <div class="hero-btns">
-      <button style="width: 13.5rem;"class="btn btn-fill btn-big" onclick="openModal('register')">Пробный урок</button>
+      <div class="trial-btn-wrap">
+  <a href="trial-lesson.html" class="btn btn-fill btn-big" style="width:13.5rem;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;">
+    🍳 Пробный урок
+  </a>
+  <div class="trial-tooltip">
+    <div class="tt-free">✓ Бесплатно · Без регистрации</div>
+    <div class="tt-head">Что тебя ждёт в уроке</div>
+    <div class="tt-row">
+      <div class="tt-icon" style="background:rgba(90,174,201,.18)">🃏</div>
+      <div><div class="tt-label">Карточки слов</div><div class="tt-val">42 новых слова</div></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-icon" style="background:rgba(232,184,75,.18)">🎬</div>
+      <div><div class="tt-label">Видео от Дарины</div><div class="tt-val">8 минут · кухонный English</div></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-icon" style="background:rgba(125,201,122,.18)">🎧</div>
+      <div><div class="tt-label">Аудио-диалоги</div><div class="tt-val">3 диалога носителей</div></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-icon" style="background:rgba(212,98,58,.18)">📝</div>
+      <div><div class="tt-label">Упражнения</div><div class="tt-val">3 интерактивных задания</div></div>
+    </div>
+    <div class="tt-arrow"></div>
+  </div>
+</div>
       <button style="width: 13.5rem;" class="btn btn-outline btn-big" onclick="openModal('register')">Начать учиться</button>
     </div>
     
