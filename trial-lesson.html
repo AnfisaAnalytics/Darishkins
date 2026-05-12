@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пробный урок — Join Joy English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #2D2A26;
+    --green: #7DC97A;
+    --pink: #F2A7C3;
+    --yellow: #E8B84B;
+    --coral: #D4623A;
+    --coral0: #eaa086;
+    --blue: #5AAEC9;
+    --cream: #FAF4EA;
+    --radius: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 60px;
+    position: sticky;
+    top: 0;
+    background: rgba(253,246,233,0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(212,98,58,0.15);
+  }
+  .logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--dark); font-weight: 700; font-size: 15px; transition: color .2s; }
+  .nav-links a:hover { color: var(--coral); }
+  .btn {
+    padding: 10px 24px; border-radius: 50px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 14px;
+    letter-spacing: 0.3px; transition: transform .15s, box-shadow .15s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+  .btn-outline { background: transparent; border: 2.5px solid var(--coral); color: var(--coral); }
+  .btn-fill { background: var(--coral); color: white; }
+  .btn-yellow { background: var(--yellow); color: var(--dark); }
+  .btn-blue { background: var(--blue); color: white; }
+  .btn-big { padding: 15px 38px; font-size: 16px; }
+
+  /* HERO */
+  .lesson-hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #3d3830 100%);
+    color: white;
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .lesson-hero::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: var(--coral);
+    border-radius: 50%;
+    opacity: .07;
+    top: -100px; right: -80px;
+  }
+  .lesson-hero::after {
+    content: '';
+    position: absolute;
+    width: 250px; height: 250px;
+    background: var(--yellow);
+    border-radius: 50%;
+    opacity: .08;
+    bottom: -60px; left: 100px;
+  }
+  .hero-breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; color: rgba(255,255,255,.4);
+    margin-bottom: 24px; position: relative; z-index: 2;
+  }
+  .hero-breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
+  .hero-breadcrumb a:hover { color: var(--yellow); }
+  .hero-breadcrumb span { color: var(--yellow); }
+
+  .lesson-hero-inner {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 40px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .lesson-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,184,75,.2); color: var(--yellow);
+    font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+    padding: 6px 16px; border-radius: 50px; margin-bottom: 20px;
+    border: 1px solid rgba(232,184,75,.3);
+  }
+  .lesson-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; line-height: 1.1; margin-bottom: 16px;
+  }
+  .lesson-title em { color: var(--yellow); font-style: italic; }
+  .lesson-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+  .meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: rgba(255,255,255,.6);
+  }
+  .meta-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  .progress-card {
+    background: rgba(255,255,255,.08);
+    border-radius: 24px; padding: 28px 32px;
+    border: 1px solid rgba(255,255,255,.1);
+    min-width: 260px;
+  }
+  .progress-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,.4); margin-bottom: 16px; }
+  .progress-steps { display: flex; flex-direction: column; gap: 10px; }
+  .progress-step {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; font-weight: 700;
+  }
+  .step-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900; flex-shrink: 0;
+  }
+  .step-dot.done { background: var(--green); color: white; }
+  .step-dot.active { background: var(--yellow); color: var(--dark); }
+  .step-dot.todo { background: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .step-name.done { color: rgba(255,255,255,.7); text-decoration: line-through; }
+  .step-name.active { color: white; }
+  .step-name.todo { color: rgba(255,255,255,.3); }
+
+  /* CONTENT LAYOUT */
+  .lesson-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    padding: 40px 60px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-block {
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.05);
+  }
+  .block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; margin-bottom: 6px;
+  }
+  .block-sub {
+    font-size: 14px; color: #888; margin-bottom: 24px; font-weight: 600;
+  }
+
+  /* VIDEO */
+  .video-wrap {
+    background: var(--dark);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .video-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #3d3830, #2D2A26);
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .play-btn {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--coral);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    border: none;
+    box-shadow: 0 8px 30px rgba(212,98,58,.4);
+  }
+  .play-btn:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(212,98,58,.5); }
+  .play-icon {
+    width: 0; height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 22px solid white;
+    margin-left: 4px;
+  }
+  .video-caption {
+    position: absolute; bottom: 20px; left: 20px;
+    background: rgba(0,0,0,.6);
+    color: white; font-size: 13px; font-weight: 700;
+    padding: 6px 14px; border-radius: 50px;
+    backdrop-filter: blur(4px);
+  }
+  .video-duration {
+    position: absolute; bottom: 20px; right: 20px;
+    background: rgba(0,0,0,.6);
+    color: rgba(255,255,255,.8); font-size: 13px; font-weight: 700;
+    padding: 6px 14px; border-radius: 50px;
+    backdrop-filter: blur(4px);
+  }
+  .video-title {
+    font-size: 15px; font-weight: 700; color: white; text-align: center;
+    margin-bottom: 8px;
+  }
+  .video-sub { font-size: 13px; color: rgba(255,255,255,.5); text-align: center; }
+
+  /* VOCAB */
+  .vocab-grid {
+    display: grid; grid-template-columns: repeat(2,1fr); gap: 12px;
+  }
+  .vocab-card {
+    border: 2px solid #f0ebe3;
+    border-radius: 16px; padding: 16px 20px;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+  }
+  .vocab-card:hover { border-color: var(--blue); background: rgba(90,174,201,.04); transform: translateY(-2px); }
+  .vocab-card.flipped { background: var(--dark); border-color: var(--dark); }
+  .vocab-en { font-size: 18px; font-weight: 900; color: var(--dark); margin-bottom: 4px; }
+  .vocab-card.flipped .vocab-en { color: var(--yellow); }
+  .vocab-ru { font-size: 13px; color: #999; font-weight: 700; display: none; }
+  .vocab-card.flipped .vocab-ru { display: block; color: rgba(255,255,255,.7); font-size: 14px; }
+  .vocab-transcription { font-size: 12px; color: var(--blue); font-weight: 700; }
+  .vocab-card.flipped .vocab-transcription { color: rgba(255,255,255,.4); }
+  .vocab-hint { font-size: 11px; color: #ccc; position: absolute; top: 10px; right: 14px; font-weight: 700; }
+  .vocab-card.flipped .vocab-hint { color: rgba(255,255,255,.3); }
+  .vocab-example { font-size: 12px; color: #bbb; margin-top: 4px; font-style: italic; display: none; }
+  .vocab-card.flipped .vocab-example { display: block; color: rgba(255,255,255,.5); }
+
+  /* AUDIO */
+  .audio-player {
+    background: linear-gradient(135deg, var(--blue), #4090b0);
+    border-radius: 20px; padding: 24px 28px;
+    color: white;
+  }
+  .audio-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+  .audio-sub { font-size: 13px; opacity: .65; margin-bottom: 20px; }
+  .audio-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .audio-play-btn {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: white; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: transform .15s;
+  }
+  .audio-play-btn:hover { transform: scale(1.08); }
+  .audio-play-icon {
+    width: 0; height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid var(--blue);
+    margin-left: 3px;
+  }
+  .audio-pause-icon { display: flex; gap: 4px; }
+  .audio-pause-bar { width: 4px; height: 16px; background: var(--blue); border-radius: 2px; }
+  .audio-timeline { flex: 1; }
+  .audio-track { height: 6px; background: rgba(255,255,255,.25); border-radius: 50px; cursor: pointer; margin-bottom: 8px; position: relative; overflow: hidden; }
+  .audio-fill { height: 100%; width: 35%; background: white; border-radius: 50px; transition: width .5s; }
+  .audio-times { display: flex; justify-content: space-between; font-size: 12px; opacity: .6; font-weight: 700; }
+  .transcript-box {
+    background: rgba(255,255,255,.1);
+    border-radius: 14px; padding: 16px 20px; margin-top: 16px;
+    font-size: 14px; line-height: 1.8;
+    border-left: 3px solid rgba(255,255,255,.3);
+  }
+  .transcript-box mark { background: rgba(255,255,255,.25); color: white; border-radius: 4px; padding: 0 3px; }
+
+  .audio-list { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .audio-item {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,.08);
+    border-radius: 14px; padding: 12px 16px;
+    cursor: pointer; transition: background .15s;
+  }
+  .audio-item:hover { background: rgba(255,255,255,.14); }
+  .audio-item.active { background: rgba(255,255,255,.18); }
+  .audio-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900; flex-shrink: 0;
+  }
+  .audio-item.active .audio-num { background: var(--yellow); color: var(--dark); }
+  .audio-item-title { font-size: 14px; font-weight: 700; }
+  .audio-item-dur { font-size: 12px; opacity: .5; }
+
+  /* EXERCISES */
+  .exercise-block { margin-bottom: 24px; }
+  .ex-title { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--coral); margin-bottom: 16px; }
+
+  .fill-blank { font-size: 16px; line-height: 2.2; color: var(--dark); }
+  .blank-input {
+    border: none; border-bottom: 2.5px solid var(--blue);
+    background: transparent; font-family: 'DM Sans', sans-serif;
+    font-size: 16px; font-weight: 700; color: var(--dark);
+    width: 120px; text-align: center; outline: none;
+    transition: border-color .15s;
+    padding: 2px 6px;
+  }
+  .blank-input:focus { border-color: var(--coral); }
+  .blank-input.correct { border-color: var(--green); color: #4a9e47; }
+  .blank-input.wrong { border-color: var(--coral); color: var(--coral); }
+
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .match-col { display: flex; flex-direction: column; gap: 8px; }
+  .match-item {
+    padding: 12px 18px; border-radius: 14px;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all .15s;
+    border: 2px solid transparent;
+  }
+  .match-en { background: var(--cream); color: var(--dark); }
+  .match-ru { background: #f0f8ff; color: #1a6080; }
+  .match-item.selected { border-color: var(--coral); background: rgba(212,98,58,.08); }
+  .match-item.matched { border-color: var(--green); background: rgba(125,201,122,.1); color: #4a9e47; }
+
+  .sentence-wrap { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 16px; }
+  .word-chip {
+    padding: 8px 16px; background: var(--cream);
+    border-radius: 50px; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: all .15s;
+    border: 2px solid transparent;
+    user-select: none;
+  }
+  .word-chip:hover { border-color: var(--blue); background: rgba(90,174,201,.08); }
+  .word-chip.used { opacity: .3; cursor: default; text-decoration: line-through; }
+  .sentence-answer {
+    min-height: 52px; padding: 10px 16px;
+    border-radius: 14px; border: 2.5px dashed #ddd;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    background: #fafafa; transition: border-color .2s;
+  }
+  .sentence-answer:hover { border-color: var(--blue); }
+  .answer-chip {
+    padding: 6px 14px; background: white;
+    border: 2px solid var(--blue); border-radius: 50px;
+    font-size: 14px; font-weight: 700; color: var(--blue);
+    cursor: pointer;
+  }
+  .answer-chip:hover { background: rgba(90,174,201,.1); }
+  .answer-placeholder { color: #ccc; font-size: 14px; font-weight: 700; }
+
+  .check-btn {
+    padding: 12px 28px; border-radius: 50px;
+    background: var(--dark); color: white;
+    font-weight: 800; font-size: 14px; border: none;
+    cursor: pointer; transition: all .2s; margin-top: 16px;
+  }
+  .check-btn:hover { background: var(--coral); transform: translateY(-1px); }
+  .feedback-box {
+    padding: 12px 18px; border-radius: 12px;
+    font-size: 14px; font-weight: 700;
+    margin-top: 12px; display: none;
+    border-left: 4px solid;
+  }
+  .feedback-box.show { display: block; }
+  .feedback-box.ok { background: rgba(125,201,122,.1); border-color: var(--green); color: #4a9e47; }
+  .feedback-box.err { background: rgba(212,98,58,.08); border-color: var(--coral); color: var(--coral); }
+
+  /* IMAGE */
+  .image-scene {
+    border-radius: 20px; overflow: hidden; position: relative;
+    background: linear-gradient(135deg, #e8f4f8, #f0f8e8);
+    min-height: 280px; display: flex; align-items: center; justify-content: center;
+    border: 2px solid #e8f0e8;
+  }
+  .image-labels { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 12px; }
+  .image-label {
+    background: white; border-radius: 12px; padding: 10px 14px;
+    text-align: center; border: 2px solid #eee;
+    font-size: 13px; font-weight: 800; cursor: pointer;
+    transition: all .15s;
+  }
+  .image-label:hover { border-color: var(--coral); background: rgba(212,98,58,.04); }
+  .image-label.active { border-color: var(--coral); background: rgba(212,98,58,.08); color: var(--coral); }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 90px; }
+  .sidebar-card {
+    background: white; border-radius: 24px; padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.06); margin-bottom: 20px;
+  }
+  .sidebar-title { font-size: 15px; font-weight: 800; margin-bottom: 16px; }
+
+  .xp-bar-wrap { height: 10px; background: #eee; border-radius: 50px; overflow: hidden; margin: 8px 0; }
+  .xp-bar { height: 100%; background: var(--yellow); border-radius: 50px; transition: width 1s ease; }
+  .xp-row { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #999; }
+
+  .achievement-list { display: flex; flex-direction: column; gap: 10px; }
+  .achievement {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; border-radius: 14px; background: var(--cream);
+  }
+  .achievement.unlocked { background: rgba(125,201,122,.1); }
+  .ach-icon { font-size: 28px; flex-shrink: 0; }
+  .ach-name { font-size: 13px; font-weight: 800; }
+  .ach-sub { font-size: 11px; color: #999; }
+  .achievement.unlocked .ach-sub { color: #4a9e47; font-weight: 700; }
+
+  .tip-card {
+    background: linear-gradient(135deg, rgba(212,98,58,.1), rgba(90,174,201,.08));
+    border-radius: 20px; padding: 22px;
+    border-left: 4px solid var(--coral);
+  }
+  .tip-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--coral); margin-bottom: 8px; }
+  .tip-text { font-size: 14px; line-height: 1.7; color: #555; }
+  .tip-text strong { color: var(--dark); }
+
+  /* LESSON NAV */
+  .lesson-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 60px; background: white;
+    border-top: 1px solid rgba(0,0,0,.06);
+    position: sticky; bottom: 0; z-index: 50;
+  }
+  .nav-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 50px; font-weight: 800; font-size: 14px;
+    cursor: pointer; border: none; transition: all .15s;
+  }
+  .nav-btn.prev { background: var(--cream); color: var(--dark); }
+  .nav-btn.next { background: var(--coral); color: white; }
+  .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .lesson-nav-title { text-align: center; }
+  .ln-label { font-size: 12px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+  .ln-name { font-size: 15px; font-weight: 800; }
+
+  /* SCENE SVG */
+  .kitchen-svg { width: 100%; max-width: 480px; }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp .6s ease both; }
+
+  @media (max-width: 1024px) {
+    nav { padding: 14px 28px; }
+    .lesson-hero { padding: 60px 28px 40px; }
+    .lesson-layout { grid-template-columns: 1fr; padding: 32px 28px; }
+    .lesson-hero-inner { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .lesson-title { font-size: 36px; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links a { display: none; }
+    .lesson-hero { padding: 48px 20px 32px; }
+    .lesson-layout { padding: 24px 20px; }
+    .lesson-nav { padding: 16px 20px; }
+    .vocab-grid { grid-template-columns: 1fr; }
+    .match-grid { grid-template-columns: 1fr; }
+    .lesson-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="logo.png" alt="Join Joy English"
+      style="height:73px;width:auto;display:block;"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--coral);">Join Joy English</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#courses">Курсы</a>
+    <a href="index.html#about">О преподавателе</a>
+    <a href="index.html#tests">Тесты</a>
+    <a href="index.html#pricing">Цены</a>
+    <button class="btn btn-outline" onclick="alert('Войти — скоро!')">Войти</button>
+    <button class="btn btn-fill">Продолжить курс</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="lesson-hero fade-in">
+  <div class="hero-breadcrumb">
+    <a href="index.html">Главная</a>
+    <span>›</span>
+    <a href="#">Beyond Basics</a>
+    <span>›</span>
+    <span>Урок 2: Кухня</span>
+  </div>
+  <div class="lesson-hero-inner">
+    <div>
+      <div class="lesson-tag">
+        <span>🍳</span> Урок 2 из 7 · Лексика
+      </div>
+      <h1 class="lesson-title">
+        Kitchen & Cooking:<br>
+        <em>Food, Tools & Techniques</em>
+      </h1>
+      <div class="lesson-meta">
+        <div class="meta-item">
+          <div class="meta-dot" style="background:var(--green)"></div>
+          Upper-Intermediate (B2+)
+        </div>
+        <div class="meta-item">
+          <div class="meta-dot" style="background:var(--yellow)"></div>
+          ~45 минут
+        </div>
+        <div class="meta-item">
+          <div class="meta-dot" style="background:var(--coral)"></div>
+          42 новых слова
+        </div>
+        <div class="meta-item">
+          <div class="meta-dot" style="background:var(--blue)"></div>
+          4 упражнения
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:12px 20px;display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.1);">
+        <span style="font-size:20px;">💡</span>
+        <span style="font-size:14px;color:rgba(255,255,255,.7);font-weight:600;">Совет: карточки со словами можно переворачивать! Нажми на любую.</span>
+      </div>
+    </div>
+
+    <div class="progress-card">
+      <div class="progress-label">Твой прогресс</div>
+      <div class="progress-steps">
+        <div class="progress-step">
+          <div class="step-dot done">✓</div>
+          <span class="step-name done">Видео-введение</span>
+        </div>
+        <div class="progress-step">
+          <div class="step-dot active">2</div>
+          <span class="step-name active">Словарный запас</span>
+        </div>
+        <div class="progress-step">
+          <div class="step-dot todo">3</div>
+          <span class="step-name todo">Аудио-диалог</span>
+        </div>
+        <div class="progress-step">
+          <div class="step-dot todo">4</div>
+          <span class="step-name todo">Упражнения</span>
+        </div>
+        <div class="progress-step">
+          <div class="step-dot todo">5</div>
+          <span class="step-name todo">Финальный тест</span>
+        </div>
+      </div>
+      <div style="margin-top:20px;">
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:8px;">Прогресс урока</div>
+        <div style="height:8px;background:rgba(255,255,255,.1);border-radius:50px;overflow:hidden;">
+          <div style="height:100%;width:25%;background:var(--yellow);border-radius:50px;transition:width 1s;"></div>
+        </div>
+        <div style="margin-top:6px;font-size:13px;font-weight:700;color:rgba(255,255,255,.5);">25% выполнено</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="lesson-layout">
+
+  <!-- LEFT: LESSON CONTENT -->
+  <div>
+
+    <!-- PART 1: VIDEO -->
+    <div class="section-block fade-in">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+        <span style="background:var(--dark);color:var(--yellow);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">1</span>
+        <h2 class="block-title" style="margin:0">Введение в тему</h2>
+      </div>
+      <p class="block-sub">Посмотри видео-урок от Дарины — 8 минут, которые изменят твой кухонный English</p>
+
+      <div class="video-wrap">
+        <div class="video-bg">
+          <div style="position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22><circle cx=%2230%22 cy=%2230%22 r=%2228%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.05)%22 stroke-width=%221%22/></svg>') center/200px repeat;opacity:.5;"></div>
+          <div style="text-align:center;position:relative;z-index:1;">
+            <div style="font-size:64px;margin-bottom:16px;animation:float 3s ease-in-out infinite;">🍳</div>
+            <button class="play-btn" onclick="playVideoDemo(this)">
+              <div class="play-icon" id="play-icon"></div>
+            </button>
+            <div style="margin-top:16px;" id="video-text">
+              <div class="video-title">Kitchen Vocabulary — Урок 2</div>
+              <div class="video-sub">Нажми чтобы начать просмотр</div>
+            </div>
+          </div>
+        </div>
+        <div class="video-caption">🎥 Дарина Антонова</div>
+        <div class="video-duration" id="video-time">8:24</div>
+      </div>
+
+      <!-- Fake progress bar for demo -->
+      <div id="video-progress" style="display:none;">
+        <div style="height:6px;background:#eee;border-radius:50px;margin-bottom:8px;overflow:hidden;">
+          <div id="vpbar" style="height:100%;width:0;background:var(--coral);border-radius:50px;transition:width .5s;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:#999;font-weight:700;">
+          <span id="vcurrent">0:00</span><span>8:24</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+        <div style="background:var(--cream);border-radius:12px;padding:10px 16px;font-size:13px;font-weight:700;color:#777;">📝 Субтитры: RU / EN</div>
+        <div style="background:var(--cream);border-radius:12px;padding:10px 16px;font-size:13px;font-weight:700;color:#777;">⚡ Скорость: 1x</div>
+        <div style="background:var(--cream);border-radius:12px;padding:10px 16px;font-size:13px;font-weight:700;color:#777;">🔖 Сохранить момент</div>
+      </div>
+    </div>
+
+    <!-- PART 2: VOCABULARY CARDS -->
+    <div class="section-block fade-in">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+        <span style="background:var(--blue);color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">2</span>
+        <h2 class="block-title" style="margin:0">Словарный запас урока</h2>
+      </div>
+      <p class="block-sub">Нажимай на карточки, чтобы увидеть перевод — запомни хотя бы 10 слов!</p>
+
+      <!-- Scene illustration -->
+      <div class="image-scene" style="margin-bottom:20px;">
+        <svg viewBox="0 0 500 260" class="kitchen-svg" xmlns="http://www.w3.org/2000/svg">
+          <!-- Kitchen bg -->
+          <rect width="500" height="260" fill="#f5f0e8" rx="12"/>
+          <!-- Wall tiles -->
+          <rect x="0" y="0" width="500" height="140" fill="#e8e0d0"/>
+          <line x1="0" y1="35" x2="500" y2="35" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="0" y1="70" x2="500" y2="70" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="0" y1="105" x2="500" y2="105" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="50" y1="0" x2="50" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="100" y1="0" x2="100" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="150" y1="0" x2="150" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="200" y1="0" x2="200" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="250" y1="0" x2="250" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="300" y1="0" x2="300" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="350" y1="0" x2="350" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="400" y1="0" x2="400" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <line x1="450" y1="0" x2="450" y2="140" stroke="#d8d0c0" stroke-width="1"/>
+          <!-- Counter -->
+          <rect x="0" y="140" width="500" height="20" fill="#c8a870" rx="2"/>
+          <rect x="0" y="160" width="500" height="100" fill="#e8dfc8"/>
+          <!-- Stove -->
+          <rect x="160" y="148" width="180" height="110" fill="#888" rx="4"/>
+          <rect x="165" y="153" width="170" height="80" fill="#666" rx="3"/>
+          <circle cx="210" cy="185" r="22" fill="#555" stroke="#444" stroke-width="2"/>
+          <circle cx="210" cy="185" r="14" fill="#3a3a3a"/>
+          <circle cx="290" cy="185" r="22" fill="#555" stroke="#444" stroke-width="2"/>
+          <circle cx="290" cy="185" r="14" fill="#3a3a3a"/>
+          <!-- Pot on stove -->
+          <ellipse cx="210" cy="165" rx="26" ry="8" fill="#c0392b"/>
+          <rect x="186" y="155" width="48" height="14" fill="#c0392b" rx="2"/>
+          <line x1="184" y1="160" x2="176" y2="160" stroke="#c0392b" stroke-width="3"/>
+          <!-- Steam -->
+          <path d="M200 148 Q203 140 200 132" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M210 145 Q213 137 210 129" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M220 148 Q223 140 220 132" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Cutting board -->
+          <rect x="30" y="148" width="110" height="50" fill="#d4a870" rx="4"/>
+          <rect x="35" y="153" width="100" height="40" fill="#c89860" rx="3"/>
+          <!-- Knife -->
+          <line x1="48" y1="158" x2="120" y2="180" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+          <rect x="38" y="155" width="18" height="8" fill="#555" rx="2"/>
+          <!-- Veggies on board -->
+          <circle cx="80" cy="168" r="8" fill="#e74c3c"/>
+          <circle cx="96" cy="164" r="7" fill="#e74c3c"/>
+          <circle cx="70" cy="175" r="6" fill="#e74c3c"/>
+          <!-- Shelf / cabinet -->
+          <rect x="360" y="10" width="130" height="120" fill="#d4b88a" rx="6"/>
+          <rect x="365" y="15" width="120" height="55" fill="#c8a870" rx="4"/>
+          <rect x="365" y="75" width="120" height="50" fill="#c8a870" rx="4"/>
+          <circle cx="424" cy="45" r="3" fill="#a08050"/>
+          <circle cx="424" cy="100" r="3" fill="#a08050"/>
+          <!-- Items on shelf -->
+          <rect x="375" y="22" width="24" height="40" fill="#e8dfc8" rx="3" stroke="#c8a870" stroke-width="1"/>
+          <text x="387" y="48" font-size="9" fill="#a08050" text-anchor="middle" font-family="sans-serif">SALT</text>
+          <rect x="405" y="22" width="24" height="40" fill="#f0e8d0" rx="3" stroke="#c8a870" stroke-width="1"/>
+          <text x="417" y="48" font-size="9" fill="#a08050" text-anchor="middle" font-family="sans-serif">OIL</text>
+          <rect x="435" y="22" width="24" height="40" fill="#ffe0d0" rx="3" stroke="#c8a870" stroke-width="1"/>
+          <text x="447" y="48" font-size="9" fill="#c05030" text-anchor="middle" font-family="sans-serif">CHILLI</text>
+          <!-- Labels with arrows -->
+          <text x="50" y="220" font-size="11" fill="#5AAEC9" font-weight="bold" font-family="sans-serif">cutting board</text>
+          <text x="196" y="245" font-size="11" fill="#5AAEC9" font-weight="bold" font-family="sans-serif">saucepan</text>
+          <text x="370" y="148" font-size="11" fill="#5AAEC9" font-weight="bold" font-family="sans-serif">cabinet</text>
+        </svg>
+      </div>
+
+      <div class="vocab-grid">
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">saucepan</div>
+          <div class="vocab-transcription">/ˈsɔːspən/</div>
+          <div class="vocab-ru">кастрюля (с длинной ручкой)</div>
+          <div class="vocab-example">"Boil the pasta in a large saucepan."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">colander</div>
+          <div class="vocab-transcription">/ˈkʌləndər/</div>
+          <div class="vocab-ru">дуршлаг</div>
+          <div class="vocab-example">"Drain the pasta through a colander."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">whisk</div>
+          <div class="vocab-transcription">/wɪsk/</div>
+          <div class="vocab-ru">венчик / взбивать</div>
+          <div class="vocab-example">"Whisk the eggs until fluffy."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">cutting board</div>
+          <div class="vocab-transcription">/ˈkʌtɪŋ bɔːrd/</div>
+          <div class="vocab-ru">разделочная доска</div>
+          <div class="vocab-example">"Chop the onion on the cutting board."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">to sauté</div>
+          <div class="vocab-transcription">/sɔːˈteɪ/</div>
+          <div class="vocab-ru">обжаривать на сильном огне</div>
+          <div class="vocab-example">"Sauté the garlic in olive oil."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">ladle</div>
+          <div class="vocab-transcription">/ˈleɪdl/</div>
+          <div class="vocab-ru">половник</div>
+          <div class="vocab-example">"Use a ladle to serve the soup."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">to simmer</div>
+          <div class="vocab-transcription">/ˈsɪmər/</div>
+          <div class="vocab-ru">томить / варить на слабом огне</div>
+          <div class="vocab-example">"Let the sauce simmer for 20 minutes."</div>
+        </div>
+        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-hint">нажми</div>
+          <div class="vocab-en">peeler</div>
+          <div class="vocab-transcription">/ˈpiːlər/</div>
+          <div class="vocab-ru">овощечистка</div>
+          <div class="vocab-example">"Use the peeler to remove the potato skin."</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:20px;">
+        <span style="font-size:13px;color:#aaa;font-weight:700;">Показано 8 из 42 слов этого урока</span>
+      </div>
+    </div>
+
+    <!-- PART 3: AUDIO -->
+    <div class="section-block fade-in">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+        <span style="background:var(--blue);color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">3</span>
+        <h2 class="block-title" style="margin:0">Слушай и понимай</h2>
+      </div>
+      <p class="block-sub">Реальные диалоги — как разговаривают носители языка на кухне</p>
+
+      <div class="audio-player">
+        <div class="audio-title">Диалог 1: На кухне после работы</div>
+        <div class="audio-sub">Носитель языка · Естественный темп речи</div>
+
+        <div class="audio-controls">
+          <button class="audio-play-btn" id="mainPlayBtn" onclick="toggleAudio()">
+            <div class="audio-play-icon" id="mainPlayIcon"></div>
+          </button>
+          <div class="audio-timeline">
+            <div class="audio-track" onclick="seekAudio(event, this)">
+              <div class="audio-fill" id="audioFill"></div>
+            </div>
+            <div class="audio-times">
+              <span id="audioTime">0:12</span>
+              <span>1:45</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="transcript-box">
+          <strong>A:</strong> <mark>Could you hand me the colander?</mark> I need to drain the pasta.<br>
+          <strong>B:</strong> Sure! Is the sauce still <mark>simmering</mark>?<br>
+          <strong>A:</strong> Yeah, I'll <mark>sauté</mark> the mushrooms in a minute — can you <mark>whisk</mark> the cream?<br>
+          <strong>B:</strong> On it. Should I use the small <mark>saucepan</mark>?
+        </div>
+
+        <div class="audio-list">
+          <div class="audio-item active">
+            <div class="audio-num">▶</div>
+            <div>
+              <div class="audio-item-title">Диалог 1: На кухне</div>
+              <div class="audio-item-dur">1:45</div>
+            </div>
+          </div>
+          <div class="audio-item" onclick="this.classList.add('active')">
+            <div class="audio-num">2</div>
+            <div>
+              <div class="audio-item-title">Диалог 2: В магазине</div>
+              <div class="audio-item-dur">2:10</div>
+            </div>
+          </div>
+          <div class="audio-item" onclick="this.classList.add('active')">
+            <div class="audio-num">3</div>
+            <div>
+              <div class="audio-item-title">Диалог 3: У плиты</div>
+              <div class="audio-item-dur">1:30</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 4: EXERCISES -->
+    <div class="section-block fade-in">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+        <span style="background:var(--coral);color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;">4</span>
+        <h2 class="block-title" style="margin:0">Упражнения</h2>
+      </div>
+      <p class="block-sub">Закрепи знания — сделай все 3 задания, чтобы открыть финальный тест</p>
+
+      <!-- Ex 1: Fill in the blank -->
+      <div class="exercise-block">
+        <div class="ex-title">📝 Задание 1 — Вставь нужное слово</div>
+        <div id="fill-feedback" class="feedback-box"></div>
+
+        <div class="fill-blank">
+          1. Please <input class="blank-input" id="b1" placeholder="..."> the eggs before adding them to the batter.
+        </div>
+        <br>
+        <div class="fill-blank">
+          2. The soup needs to <input class="blank-input" id="b2" placeholder="..."> for at least 30 minutes on low heat.
+        </div>
+        <br>
+        <div class="fill-blank">
+          3. I always use a <input class="blank-input" id="b3" placeholder="..."> to serve the soup — it's easier than a spoon.
+        </div>
+        <button class="check-btn" onclick="checkFill()">Проверить ответы</button>
+      </div>
+
+      <!-- Ex 2: Match words -->
+      <div class="exercise-block">
+        <div class="ex-title">🔗 Задание 2 — Соедини слова с переводом</div>
+        <div id="match-feedback" class="feedback-box"></div>
+
+        <div class="match-grid">
+          <div class="match-col">
+            <div class="match-item match-en" onclick="selectMatch(this,'en','colander')">colander</div>
+            <div class="match-item match-en" onclick="selectMatch(this,'en','peeler')">peeler</div>
+            <div class="match-item match-en" onclick="selectMatch(this,'en','ladle')">ladle</div>
+            <div class="match-item match-en" onclick="selectMatch(this,'en','saucepan')">saucepan</div>
+          </div>
+          <div class="match-col">
+            <div class="match-item match-ru" onclick="selectMatch(this,'ru','saucepan')">кастрюля</div>
+            <div class="match-item match-ru" onclick="selectMatch(this,'ru','ladle')">половник</div>
+            <div class="match-item match-ru" onclick="selectMatch(this,'ru','colander')">дуршлаг</div>
+            <div class="match-item match-ru" onclick="selectMatch(this,'ru','peeler')">овощечистка</div>
+          </div>
+        </div>
+        <button class="check-btn" onclick="checkMatch()">Проверить</button>
+      </div>
+
+      <!-- Ex 3: Sentence order -->
+      <div class="exercise-block">
+        <div class="ex-title">🔀 Задание 3 — Собери предложение</div>
+        <p style="font-size:14px;color:#777;margin-bottom:16px;font-weight:600;">Нажимай на слова в правильном порядке</p>
+
+        <div id="word-bank" class="sentence-wrap">
+          <div class="word-chip" onclick="addWord(this,'the')">the</div>
+          <div class="word-chip" onclick="addWord(this,'pasta')">pasta</div>
+          <div class="word-chip" onclick="addWord(this,'Drain')">Drain</div>
+          <div class="word-chip" onclick="addWord(this,'colander')">colander</div>
+          <div class="word-chip" onclick="addWord(this,'through')">through</div>
+          <div class="word-chip" onclick="addWord(this,'a')">a</div>
+        </div>
+
+        <div class="sentence-answer" id="sentence-answer" onclick="removeLastWord()">
+          <span class="answer-placeholder" id="answer-placeholder">Нажми слова в правильном порядке... (нажми здесь чтобы убрать последнее)</span>
+        </div>
+
+        <div id="sentence-feedback" class="feedback-box"></div>
+        <button class="check-btn" onclick="checkSentence()">Проверить</button>
+      </div>
+    </div>
+
+    <!-- COMPLETION TEASER -->
+    <div style="background:linear-gradient(135deg,var(--coral),#e84a8c);border-radius:24px;padding:36px;text-align:center;color:white;margin-bottom:24px;">
+      <div style="font-size:48px;margin-bottom:12px;">🔒</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:8px;">Финальный тест заблокирован</h3>
+      <p style="font-size:15px;opacity:.8;margin-bottom:24px;line-height:1.6;">Выполни все 3 упражнения выше, чтобы разблокировать тест и получить оценку за урок</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,.15);border-radius:12px;padding:14px 24px;text-align:center;">
+          <div style="font-size:22px;font-weight:900;font-family:'Cormorant Garamond',serif;">0/3</div>
+          <div style="font-size:12px;opacity:.7;">Заданий выполнено</div>
+        </div>
+        <div style="background:rgba(255,255,255,.15);border-radius:12px;padding:14px 24px;text-align:center;">
+          <div style="font-size:22px;font-weight:900;font-family:'Cormorant Garamond',serif;">42</div>
+          <div style="font-size:12px;opacity:.7;">Слов в уроке</div>
+        </div>
+        <div style="background:rgba(255,255,255,.15);border-radius:12px;padding:14px 24px;text-align:center;">
+          <div style="font-size:22px;font-weight:900;font-family:'Cormorant Garamond',serif;">⏱ 23 мин</div>
+          <div style="font-size:12px;opacity:.7;">Осталось</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end left -->
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- XP & Progress -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">⚡ Твои очки опыта</div>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:8px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:900;color:var(--coral);">240</span>
+        <span style="font-size:14px;color:#999;font-weight:700;">XP этого урока</span>
+      </div>
+      <div class="xp-row"><span>Level 5</span><span>240 / 500 XP</span></div>
+      <div class="xp-bar-wrap"><div class="xp-bar" style="width:48%;"></div></div>
+      <div style="font-size:12px;color:#aaa;font-weight:700;margin-top:4px;">+260 XP до следующего уровня</div>
+    </div>
+
+    <!-- Tips -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">💡 Заметка от Дарины</div>
+      <div class="tip-card">
+        <div class="tip-label">Совет урока</div>
+        <div class="tip-text">
+          Обрати внимание: <strong>sauté</strong> — это французское слово! В английском его произносят как «сотЭй», а не «соте». 
+          В кулинарных рецептах его встретишь очень часто — это не просто «жарить», а быстро обжаривать на сильном огне с минимумом масла.
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">🏆 Достижения</div>
+      <div class="achievement-list">
+        <div class="achievement unlocked">
+          <div class="ach-icon">🎬</div>
+          <div>
+            <div class="ach-name">Смотрел урок</div>
+            <div class="ach-sub">✅ Разблокировано!</div>
+          </div>
+        </div>
+        <div class="achievement unlocked">
+          <div class="ach-icon">🃏</div>
+          <div>
+            <div class="ach-name">Перевернул 8 карточек</div>
+            <div class="ach-sub">✅ Разблокировано!</div>
+          </div>
+        </div>
+        <div class="achievement">
+          <div class="ach-icon">🎧</div>
+          <div>
+            <div class="ach-name">Слушатель</div>
+            <div class="ach-sub">Прослушай все 3 диалога</div>
+          </div>
+        </div>
+        <div class="achievement">
+          <div class="ach-icon">💯</div>
+          <div>
+            <div class="ach-name">Отличник</div>
+            <div class="ach-sub">Набери 90%+ на тесте</div>
+          </div>
+        </div>
+        <div class="achievement">
+          <div class="ach-icon">🔥</div>
+          <div>
+            <div class="ach-name">На огне!</div>
+            <div class="ach-sub">3 дня подряд</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related words -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">📖 Слова этого урока</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="background:var(--cream);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--dark);">saucepan</span>
+        <span style="background:var(--cream);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--dark);">colander</span>
+        <span style="background:rgba(90,174,201,.12);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--blue);">whisk ✓</span>
+        <span style="background:rgba(90,174,201,.12);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--blue);">ladle ✓</span>
+        <span style="background:var(--cream);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--dark);">peeler</span>
+        <span style="background:var(--cream);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--dark);">sauté</span>
+        <span style="background:var(--cream);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--dark);">simmer</span>
+        <span style="background:rgba(45,42,38,.07);border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;color:#bbb;">+34 слова 🔒</span>
+      </div>
+      <div style="margin-top:16px;padding:14px;background:linear-gradient(135deg,rgba(232,184,75,.15),rgba(90,174,201,.1));border-radius:14px;font-size:13px;color:#555;font-weight:600;line-height:1.6;">
+        🔓 Разблокируй остальные слова, выполнив упражнения
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LESSON NAVIGATION -->
+<div class="lesson-nav">
+  <button class="nav-btn prev" onclick="history.back()">
+    ← Урок 1: Дом и ремонт
+  </button>
+  <div class="lesson-nav-title">
+    <div class="ln-label">Следующий урок</div>
+    <div class="ln-name">Урок 3: Машина и дорога 🚗</div>
+  </div>
+  <button class="nav-btn next">
+    Урок 3 →
+  </button>
+</div>
+
+<script>
+/* VIDEO DEMO */
+let videoPlaying = false;
+let videoProgress = 0;
+let videoTimer = null;
+
+function playVideoDemo(btn) {
+  const vpbar = document.getElementById('vpbar');
+  const vcurrent = document.getElementById('vcurrent');
+  const vpWrap = document.getElementById('video-progress');
+  const vtime = document.getElementById('video-time');
+  const vtext = document.getElementById('video-text');
+  const icon = document.getElementById('play-icon');
+
+  vpWrap.style.display = 'block';
+  videoPlaying = !videoPlaying;
+
+  if (videoPlaying) {
+    btn.style.background = 'rgba(255,255,255,0.8)';
+    icon.style.cssText = 'display:flex;gap:5px;';
+    icon.innerHTML = '<div style="width:5px;height:20px;background:var(--coral);border-radius:2px;"></div><div style="width:5px;height:20px;background:var(--coral);border-radius:2px;"></div>';
+    vtext.innerHTML = '<div class="video-title">▶ Воспроизведение...</div><div class="video-sub">Нажми паузу</div>';
+    videoTimer = setInterval(() => {
+      videoProgress = Math.min(videoProgress + 0.8, 100);
+      vpbar.style.width = videoProgress + '%';
+      const secs = Math.round(videoProgress * 5.04);
+      const m = Math.floor(secs/60);
+      const s = secs % 60;
+      vcurrent.textContent = m + ':' + (s<10?'0':'')+s;
+      if (videoProgress >= 100) { clearInterval(videoTimer); videoPlaying = false; }
+    }, 500);
+  } else {
+    clearInterval(videoTimer);
+    icon.style.cssText = '';
+    icon.className = 'play-icon';
+    icon.innerHTML = '';
+    btn.style.background = 'white';
+    vtext.innerHTML = '<div class="video-title">▶ Продолжить просмотр</div><div class="video-sub">Пауза</div>';
+  }
+}
+
+/* AUDIO DEMO */
+let audioPlaying = false;
+let audioP = 7;
+let audioTimer = null;
+
+function toggleAudio() {
+  const btn = document.getElementById('mainPlayBtn');
+  const fill = document.getElementById('audioFill');
+  const timeEl = document.getElementById('audioTime');
+  const icon = document.getElementById('mainPlayIcon');
+
+  audioPlaying = !audioPlaying;
+  if (audioPlaying) {
+    icon.innerHTML = '<div style="display:flex;gap:4px;"><div style="width:4px;height:16px;background:var(--blue);border-radius:2px;"></div><div style="width:4px;height:16px;background:var(--blue);border-radius:2px;"></div></div>';
+    audioTimer = setInterval(() => {
+      audioP = Math.min(audioP + 0.6, 100);
+      fill.style.width = audioP + '%';
+      const total = 105;
+      const secs = Math.round(audioP/100*total);
+      const m = Math.floor(secs/60);
+      const s = secs % 60;
+      timeEl.textContent = m + ':' + (s<10?'0':'')+s;
+      if (audioP >= 100) { clearInterval(audioTimer); audioPlaying = false; resetIcon(); }
+    }, 400);
+  } else {
+    clearInterval(audioTimer);
+    resetIcon();
+  }
+}
+function resetIcon() {
+  document.getElementById('mainPlayIcon').innerHTML = '<div style="width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid var(--blue);margin-left:3px;"></div>';
+}
+function seekAudio(e, track) {
+  const rect = track.getBoundingClientRect();
+  audioP = (e.clientX - rect.left) / rect.width * 100;
+  document.getElementById('audioFill').style.width = audioP + '%';
+}
+
+/* FILL IN THE BLANK */
+const fillAnswers = { b1: 'whisk', b2: 'simmer', b3: 'ladle' };
+function checkFill() {
+  let correct = 0;
+  const fb = document.getElementById('fill-feedback');
+  ['b1','b2','b3'].forEach(id => {
+    const el = document.getElementById(id);
+    const val = el.value.trim().toLowerCase();
+    const ans = fillAnswers[id].toLowerCase();
+    if (val === ans) { el.classList.add('correct'); el.classList.remove('wrong'); correct++; }
+    else { el.classList.add('wrong'); el.classList.remove('correct'); }
+  });
+  fb.className = 'feedback-box show ' + (correct===3 ? 'ok' : 'err');
+  fb.textContent = correct === 3
+    ? '🎉 Отлично! Все три ответа верны!'
+    : `❌ ${correct} из 3 верно. Правильные ответы: whisk, simmer, ladle`;
+}
+
+/* MATCH */
+let matchSelected = null;
+const matchPairs = {};
+function selectMatch(el, lang, word) {
+  if (el.classList.contains('matched')) return;
+  if (!matchSelected) {
+    el.classList.add('selected');
+    matchSelected = { el, lang, word };
+  } else {
+    if (matchSelected.lang === lang) {
+      matchSelected.el.classList.remove('selected');
+      el.classList.add('selected');
+      matchSelected = { el, lang, word };
+      return;
+    }
+    if (matchSelected.word === word) {
+      [el, matchSelected.el].forEach(e => { e.classList.remove('selected'); e.classList.add('matched'); });
+      matchPairs[word] = true;
+    } else {
+      [el, matchSelected.el].forEach(e => e.classList.remove('selected'));
+    }
+    matchSelected = null;
+  }
+}
+function checkMatch() {
+  const fb = document.getElementById('match-feedback');
+  const count = Object.keys(matchPairs).length;
+  fb.className = 'feedback-box show ' + (count === 4 ? 'ok' : 'err');
+  fb.textContent = count === 4 ? '🎉 Все пары совпадают!' : `Найдено ${count} из 4 пар. Нажимай сначала на английское слово, потом на перевод.`;
+}
+
+/* SENTENCE BUILDER */
+let sentenceWords = [];
+const correctSentence = ['Drain','the','pasta','through','a','colander'];
+function addWord(chip, word) {
+  if (chip.classList.contains('used')) return;
+  chip.classList.add('used');
+  sentenceWords.push(word);
+  updateSentenceAnswer();
+}
+function removeLastWord() {
+  if (!sentenceWords.length) return;
+  const last = sentenceWords.pop();
+  document.querySelectorAll('#word-bank .word-chip').forEach(chip => {
+    if (!chip.classList.contains('used')) return;
+    if (chip.textContent === last && !chip.dataset.restored) {
+      chip.classList.remove('used');
+      chip.dataset.restored = '1';
+      setTimeout(() => delete chip.dataset.restored, 100);
+      return;
+    }
+  });
+  updateSentenceAnswer();
+}
+function updateSentenceAnswer() {
+  const el = document.getElementById('sentence-answer');
+  const ph = document.getElementById('answer-placeholder');
+  if (!sentenceWords.length) {
+    ph.style.display = 'block';
+    el.querySelectorAll('.answer-chip').forEach(c => c.remove());
+    return;
+  }
+  ph.style.display = 'none';
+  el.querySelectorAll('.answer-chip').forEach(c => c.remove());
+  sentenceWords.forEach((w,i) => {
+    const chip = document.createElement('div');
+    chip.className = 'answer-chip';
+    chip.textContent = w;
+    el.appendChild(chip);
+  });
+}
+function checkSentence() {
+  const fb = document.getElementById('sentence-feedback');
+  const ok = JSON.stringify(sentenceWords) === JSON.stringify(correctSentence);
+  fb.className = 'feedback-box show ' + (ok ? 'ok' : 'err');
+  fb.textContent = ok
+    ? '🎉 Правильно! "Drain the pasta through a colander." — отлично!'
+    : `❌ Почти! Правильный порядок: "${correctSentence.join(' ')}"`;
+}
+</script>
+</body>
+</html>
